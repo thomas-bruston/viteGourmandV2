@@ -1,0 +1,35 @@
+# Environnement — NE JAMAIS COMMITTER
+.env
+
+# macOS
+.DS_Store
+**/.DS_Store
+.AppleDouble
+.LSOverride
+
+# Dépendances
+vendor/
+node_modules/
+
+# Logs
+*.log
+logs/
+
+# Cache
+cache/
+tmp/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Upload utilisateurs (données personnelles)
+public/uploads/
+
+# Clés SSL
+docker/nginx/ssl/
+
+# phpMyAdmin config local
+docker/phpmyadmin/
