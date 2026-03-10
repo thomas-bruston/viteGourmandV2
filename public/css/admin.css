@@ -1,0 +1,176 @@
+  * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+/* MENU */
+
+        
+
+        .menuContainer {
+            max-width: 1200px;
+            margin: 150px auto;
+            
+            padding: 20px 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .menu-btn {
+            background-color: #2d5f3f;;
+            color: white;
+            text-decoration: none;
+            padding: 30px 40px;
+            margin: 0 40px;
+            border-radius: 12px;
+            font-family: l;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(74, 124, 89, 0.3);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .menu-btn:hover{
+            background-color: #6ec585;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(45, 95, 63, 0.3);
+
+        }
+
+/*HORAIRES*/
+
+        .time-menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            max-width: 500px;
+            
+        }
+
+        h2 {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background-color:#f0c103;
+            color: #fff;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            width: 150px;
+            padding:8px 40px;  
+            display: flex; 
+            justify-content: center;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 20px;   
+        }  
+
+        textarea#horaires {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #2d5f3f;
+            border-radius: 10px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            resize: vertical;
+            transition: all 0.3s ease;
+            background-color: #fff;
+        }
+
+        textarea#horaires:focus {
+            outline: none;
+            border-color: #6ec585;
+            box-shadow: 0 4px 15px rgba(110, 197, 133, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .valider-btn{
+            display: block;
+            margin: 20px auto 0 auto;
+            background-color: #6ec585;
+            border-radius: 30px;
+            padding:8px 20px;  
+            color: #fff;
+            border: none;
+            display: flex; 
+            justify-content: center;
+            font-weight: bold;   
+        }
+        
+        .valider-btn:hover {
+            background-color: #6ec585;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(45, 95, 63, 0.3);
+        }
+
+        p{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        
+        .time-menu.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+/* MESSAGE SUCCES */
+
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            margin: 120px 0;
+            margin-bottom: 40px;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-align: center;
+            position: fixed;
+            top: 100px; 
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9999; 
+    }
+
+
+/* RESPONSIVE */
+
+        @media (max-width: 480px) {
+            .menuContainer {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 30px 15px;
+            }
+
+            .menu-btn {
+                margin: 0 40px;
+                padding: 25px 30px;
+                font-size: 16px;
+            }
+        }

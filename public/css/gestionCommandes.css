@@ -1,0 +1,485 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .btn-container{
+            display: flex;
+            justify-content: center;
+        }
+
+        .main-btn {
+            margin-top: 120px;
+            background-color: #2d6a4f;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+/*MESSAGE MAIL RETOUR */
+
+        .success {
+                background-color: #d4edda;
+                color: #155724;
+                padding: 15px;
+                margin: 83px 0;
+                border: 1px solid #c3e6cb;
+                border-radius: 5px;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                text-align: center;
+                position: fixed;
+                top: 100px; 
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 9999; 
+            }
+
+/* COMMANDES */
+
+        .container{
+            display: flex;
+            justify-content: center;
+        }
+
+        .left-card {
+            background: white;
+            border-radius: 10px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            min-width: 280px;
+            border: solid;
+            border-color: #fdc8b6;
+            margin-top: 2rem;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #000000;
+        }
+
+        .user-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .user-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px;
+            border-radius: 8px;
+            transition: background-color 0.2s;
+            border-bottom: 2px solid #f0f0f0;
+            gap: 20px;
+        }
+
+        .user-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+        }
+
+        .user-name {
+            font-size: 16px;
+            color: #000000;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+/* FENETRE MOTIF ANNULATION */
+
+        .motif-annulation-column {
+            display: flex;
+            align-items: center;
+            min-width: 200px;
+            max-width: 250px;
+            padding: 0 10px;
+        }
+
+        .motif-annulation-box {
+            background-color: #fef2f2;
+            border: 2px solid #fecaca;
+            border-radius: 8px;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .motif-title-small {
+            color: #dc2626;
+            font-size: 12px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 5px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .motif-text {
+            color: #374151;
+            font-size: 13px;
+            line-height: 1.4;
+            margin: 0;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            word-wrap: break-word;
+        }
+
+        .motif-empty {
+            color: #9ca3af;
+            font-size: 14px;
+            text-align: center;
+            width: 100%;
+        }
+
+/* BADGE STATUT */
+
+        .status-badge {
+            background-color: #e0e7ff;
+            color: #6366f1;
+            padding: 10px 20px;
+            border-radius:20px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .status-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+/*STATUTS*/
+
+        .right-card{
+            position: fixed;
+            top: 0;
+            right: -320px; 
+            width: 320px;
+            height: 100vh;
+            margin-top: 0px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 20px;
+            transition: right 0.35s ease;
+            z-index: 1000;
+            border-bottom-left-radius: 30px;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            background-color:#ffffff;
+            overflow-y: auto;
+        }
+
+        .right-card.open {
+            right: 0px;
+        }
+
+        .right-card-header{
+            padding: 16px 16px;
+            border-radius:20px;
+            font-size: 1rem;
+            font-weight: 500;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .right-card-title{
+            background-color: #e0e7ff;
+            color: #6366f1;
+            padding: 10px 20px;
+            border-radius:10px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .status-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap:20px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .status-item {
+            padding: 12px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            max-width: 400px;
+            align-items: center;
+            width: 200px;
+        }
+
+        .status-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #status-acceptee {
+            background-color: #d1f4e0;
+            color: #059669;
+        }
+
+        #status-preparation {
+            background-color: #fef3c7;
+            color: #d97706;
+        }
+
+        #status-livraison {
+            background-color: #e0e7ff;
+            color: #6366f1;
+        }
+
+        #status-livree {
+            background-color: #fce7f3;
+            color: #db2777;
+        }
+
+        #status-retour {
+            background-color: #fed7aa;
+            color: #c2410c;
+        }
+
+        #status-terminee {
+            background-color: #abfcdd;
+            color: #059669;
+        }
+
+        #status-annulee {
+            background-color: #fecaca;
+            color: #dc2626;
+        }
+
+/* FENETRE ANNULATION */
+
+        .motif-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            max-width: 500px;
+            width: 90%;
+        }       
+
+        .motif-container.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+
+        .motif-header {
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+            text-align: center;
+        }
+
+        .motif-title {
+            color: #dc2626;
+            font-size: 18px;
+            font-weight: 600;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .motif-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #374151;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .motif-textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            resize: vertical;
+            min-height: 120px;
+            transition: border-color 0.2s;
+        }
+
+        .motif-textarea:focus {
+            outline: none;
+            border-color: #dc2626;
+        }
+
+        .motif-textarea::placeholder {
+            color: #9ca3af;
+        }
+
+        .btn-envoyer-annulation {
+            background-color: #dc2626;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.2s;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            width: 100%;
+        }
+
+        .btn-envoyer-annulation:hover {
+            background-color: #b91c1c;
+            transform: translateY(-2px);
+        }
+
+        .btn-envoyer-annulation:active {
+            transform: translateY(0);
+        }
+
+        h3 {
+            color: red;
+            text-align: center;
+            padding-top: 1rem;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: bold;
+        }
+        .warning-msg{
+            color: red;
+            text-align: center;
+            padding-top: 1rem;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: bold;
+
+        }
+
+        /*overlay*/
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.45);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+            z-index: 900;
+        }
+
+        .overlay.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        /* moyen de contatc*/
+
+        .motif-contact {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .motif-contact label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #374151;
+            font-family: 'Lucida Sans', sans-serif;
+        }
+
+        .motif-contact select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: 'Lucida Sans', sans-serif;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        .motif-contact select:focus {
+            outline: none;
+            border-color: #dc2626;
+        }
+
+        /*RESPONSIVE*/
+
+        @media (max-width: 480px) {
+            .left-card{
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+            .right-card {
+                width: 280px;
+                right: -280px;
+            }
+            
+            .right-card.open {
+                right: 0;
+            }
+            
+            .motif-container {
+                display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            max-width: 500px;
+            overflow: hidden;
+            }
+            
+            .user-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .motif-annulation-column {
+                width: 100%;
+                max-width: 100%;
+            }
+        }

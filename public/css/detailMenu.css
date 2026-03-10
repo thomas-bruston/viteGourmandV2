@@ -1,0 +1,355 @@
+    * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;     
+        }
+        
+/* TOP MENU */
+
+        .secondMenu {
+            background-color:#6ec585;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap :35px;
+            }
+
+        .secondMenu p {
+            background-color: #ffffff;
+            border-radius: 30px;
+            color: rgb(0, 0, 0);
+            margin: 0;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+
+/* ALLERGENS BTN */
+
+        .secondMenu button {
+            background-color:  #f0c103;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 30px;
+            font-size: 1rem;
+            border:none;
+            font-weight: bold;
+            }
+
+        .secondMenu button:hover {
+            background-color: #fbd84c;
+            
+            }
+/*MENU ALLERGENES*/
+
+        .allergie-menu {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .allergie-header {
+            background-color: #f0c103;
+            color: #fff;
+            height: 50px;
+            width: 100%;
+            border-radius: 10px;
+            text-align: center;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin: 0; 
+            padding: 0; 
+            font-weight: bold;
+            font-size: 1.2rem;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .allergenes {
+            margin-top: 20px; 
+            padding: 10px 20px;
+            color: #d11111;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            width: 100%;
+            justify-content: center;
+            text-align: center;
+            text-transform: uppercase;
+            
+        }
+
+        .allergenes ol {
+            list-style-type: none;
+        }
+
+       
+        .allergie-menu.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
+/* STOCK */
+
+        .epuise {
+        color: #dc2626;
+        font-weight: bold;
+        font-size: 1rem;
+        }
+
+        .disponible {
+            color: #2d5f3f;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .quantite {
+            display: block;
+            margin-top: 8px;
+            font-size: 1rem;
+        }
+
+/* TITRES */
+
+        .theme{
+            display: flex;
+            justify-content: center;
+        
+        }
+        .titre{
+            background: #ff9a9e;
+            color: #8b4049;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            border-radius: 30px;
+            margin-top: 40px;
+            padding :10px 20px;
+            font-weight: bold;
+
+
+        }
+        h3{
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        h4,p{
+            
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        
+
+/* DESCRIPTION */
+
+        .titres p {
+            margin: 0.5rem 2rem 2rem;
+            color: #666;
+            font-size: 1.05rem;
+            text-align: center;
+        }
+        
+/* MENUCARD*/
+        
+        #cardsContainer {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            align-items: flex-start;
+            margin: 40px auto;
+            flex-wrap: nowrap;
+        }
+
+        .card {
+            width: 328px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            overflow: hidden;
+            border: 1px solid #f3eaea;
+        }
+
+        .card-header {
+            background: #fff7f7;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 1rem;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-align: center;
+        }
+
+        .image-container img {
+            width: 328px;
+            height: 272px;
+            object-fit: cover;
+            display: block;
+        }
+
+/* FOOTER*/
+
+        footer {
+            padding: 20px 30px;
+            display: flex;
+            
+            align-items: center;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            
+            margin-top: 60px;
+            
+        }
+
+        .footer-left {
+            flex: 1;
+            margin-right: 140px;
+        }
+
+        .footer-message {
+            display: flex;
+            justify-content: flex-start;
+            margin-left: 150px; 
+        }
+
+        .footer-message p {
+            line-height: 1.6;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin: 0;
+        }
+
+        .footer-message p:first-child strong {
+            color: #ff6b6b;
+            text-decoration: underline;
+        }
+
+        .footer-info {
+            display: flex;
+            justify-content: flex-start;
+            margin-left: 150px;
+            
+        }
+
+        .footer-info p {
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+          }
+
+        .footer-right {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding-right: 150px;
+        }
+
+        .btn-commander {
+           background-color:#2d5f3f;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 5px
+        }
+
+        .btn-commander:hover {
+            background-color: #6ec585;
+        }
+          .btn-delete {
+           background-color:#be0e0e;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 5px
+        }
+        .btn-delete:hover {
+            background-color: #f64a4a;
+        }
+
+        .auth-links{
+            color: #2d5f3f;
+            font-weight: bold;
+            text-align: center;
+        }
+
+      
+
+    @media (max-width: 480px) {
+
+        .secondMenu {
+            flex-direction: column;
+            gap: 10px;
+            
+        }
+
+        #cardsContainer{
+            flex-direction: column;
+            align-items: center;
+        }
+        .description{
+            text-align: center;
+        }
+
+        footer {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 30px 20px;
+        }
+    
+        .footer-left {
+            margin-right: 0;
+            width: 100%;
+            margin-bottom: 30px;
+    }
+    
+        .footer-message,
+        .footer-info {
+            
+            margin-left: 0;
+            justify-content: center;
+    }
+    
+        .footer-right {
+            width: 100%;
+            align-items: center;
+            padding-right: 0;
+        }
+        
+        .btn-commander,
+        .btn-delete {
+            width: 100%;
+            max-width: 300px;
+        }
+    }
+        

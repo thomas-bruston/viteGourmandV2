@@ -1,0 +1,301 @@
+   * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            
+        }
+
+/* CARDS */
+         
+        .container {
+            max-width: 1200px;
+            margin-bottom: 40px;
+            margin: 0 auto;
+            display: flex;
+            gap:40px;
+            margin-top: 40px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+            height: 750px;
+        }
+
+        .left-card {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 50px; 
+        }
+
+        .right-card {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 50px; 
+            
+        }
+
+        .header {
+            background-color: #2d5f3f;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            font-size: 26px;
+            font-weight: normal;
+            border-radius: 10px;
+        }
+
+        .content {
+            padding: 60px 40px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dish-container {
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+        }
+
+        .dish-card {
+            border: 1px solid #FDC8B6;;
+            border-radius: 8px;
+            padding: 10px;
+            background-color: white;
+        }
+
+        .dish-title{
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .dish-card h3 {
+            margin-bottom: 20px;
+            font-size: 22px;
+            color: #000000;
+            
+        }
+
+        .dish-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+/* CHOIX PERSONNES */
+        
+        .input-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 40px;
+            margin-bottom: 10px;
+
+        }
+
+        .input-group i {
+            color: #2d5f3f;
+            font-size: 18px;
+        }
+
+        .input-group input {
+            width: 80px;
+            padding: 5px;
+            text-align: center;
+        }
+         .fa-regular.fa-circle-user{
+            color: #6ec585;
+            font-size: 2.6rem;
+            border-radius: 50px;
+            
+        }
+      
+/*FORMULAIRE PRIX*/
+
+        .form-content {
+            padding: 40px 50px;
+        }
+
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group .price {
+            font-weight: bold;
+            text-align: right;
+        }
+
+        .total-group {
+            padding-top: 15px;
+            margin-top: 15px;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .total-price {
+            color: #2fd371;
+        }
+
+        p{
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .payment{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .btn-valider {
+            background-color:#2d5f3f;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 20px 80px;
+        }
+        .btn-valider:hover {
+            background-color: #6ec585;
+        }
+        .btn-valider-calcul{
+            background-color:#2d5f3f;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 0px 80px;
+            
+        }
+
+/*FORMULAIRE INFOS*/
+        
+        .form-container{
+             display: flex;
+            justify-content: center;
+            margin-top: 40px;
+         }
+
+        .contact-form {
+          width: 75%;
+          max-width: 650px;
+          background-color: white;
+          
+          padding: 2rem;
+          border-radius: 12px;
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+          padding: 3rem 4rem;
+          margin-top: 40px;
+          font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .contact-form label {
+          display: block;
+          font-weight: 600;
+          color: #000000;
+          margin-top: 1.5rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+          width: 100%;
+          margin-top: 0.5rem;
+          padding: 1rem;
+          border: 1px solid  #000000;
+          border-radius: 8px;
+          font-size: 1rem;
+          color: #000000;
+          transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+          border-color: #2d5f3f;
+          box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+          outline: none;
+        }
+       
+        p{
+          margin-top: 10px;
+        }
+        .messageInfos{
+            color: red;
+        }
+
+
+/* VALIDER BTN */
+
+        .submit-btn {
+          margin-left: 9rem;
+          margin-top: 3rem;
+          width: 40%;
+          padding: 0.7rem;
+          background-color:#2d5f3f;
+          color: white;
+          border: none;
+          border-radius: 10px;
+          font-size: 1.5rem;
+          cursor: pointer;
+          transition: background-color 0.3s;
+        }
+        .submit-btn:hover{
+          background-color:#6ec585;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 8px rgba(45, 95, 63, 0.3);}
+
+/* RESPONSIVE */
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+                flex-direction: column;
+            }
+
+            .button-container {
+                 gap: 15px;
+               
+            }
+
+            .btn {
+                width: 20%;
+                display: flex;
+                justify-content: center;
+            }
+            .payment img{
+                width: 75%;
+            }
+            .submit-btn {
+                width: 100%;
+                margin-left: 0rem;
+          }
+        }

@@ -1,0 +1,510 @@
+    * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+           
+            
+        }
+       
+/* TOP MENU */
+
+        .secondMenu {
+            background-color:#6ec585;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap :35px;
+            margin-top: 100px;
+            }
+
+        .secondMenu p {
+            background-color: #ffffff;
+            border-radius: 30px;
+            color: rgb(0, 0, 0);
+            margin: 0;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+
+/* ALLERGENES BTN */
+
+        .secondMenu button {
+            background-color:  #f0c103;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 30px;
+            font-size: 1rem;
+            border:none;
+            font-weight: bold;
+            }
+
+        .secondMenu button:hover {
+            background-color: #fbd84c;
+            
+            }
+/*MENU ALLERGENES*/
+
+        .allergie-menu {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .allergie-header {
+            background-color: #f0c103;
+            color: #fff;
+            height: 50px;
+            width: 100%;
+            border-radius: 10px;
+            text-align: center;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin: 0; 
+            padding: 0; 
+            font-weight: bold;
+            font-size: 1.2rem;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .allergenes {
+            margin-top: 20px; 
+            padding: 10px 20px;
+            color: #d11111;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            width: 100%;
+            justify-content: center;
+            text-align: center;
+            text-transform: uppercase;
+            
+        }
+
+        .allergenes ol {
+            list-style-type: none;
+           
+            
+        }
+
+        
+        .allergie-menu.open {
+            
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+/* TITRES */
+
+        .menu-titre {
+            text-align: center;
+            color: #000000;
+            font-family: 'Lucida Sans', sans-serif;
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+
+        .theme{
+            
+            display: flex;
+            justify-content: center;
+        
+        }
+        .titre{
+            background: #ff9a9e;
+            color: #8b4049;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            border-radius: 30px;
+            margin-top: 40px;
+            padding :10px 20px;
+            font-weight: bold;
+
+
+        }
+
+        h4,p{
+            
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        
+
+/* DESCRIPTION */
+
+        .titres p {
+            margin: 0.5rem 2rem 2rem;
+            color: #666;
+            font-size: 1.05rem;
+        }
+
+        
+        
+/* MENUCARD*/
+        
+        #cardsContainer {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            align-items: flex-start;
+            margin: 40px auto;
+            flex-wrap: nowrap;
+        }
+
+        .card {
+            width: 328px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            overflow: hidden;
+            border: 1px solid #f3eaea;
+        }
+
+        .card-header {
+            background: #fff7f7;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 1rem;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-align: center;
+        }
+
+        .image-container img {
+            width: 328px;
+            height: 272px;
+            object-fit: cover;
+            display: block;
+        }
+
+/* FOOTER*/
+
+        .footer-btn{
+            display: flex;
+            justify-content: center;
+            gap:40px;  
+        }
+
+        .btn-modifier {
+           background-color:#f0c103;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 5px;  
+        }
+        .btn-modifier:hover {
+            background-color:#fbd84c
+        }
+
+          .btn-supprimer {
+           background-color:#be0e0e;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 5px
+        }
+        .btn-supprimer:hover {
+            background-color: #f64a4a;
+        }
+
+       
+/* FORMULAIRE CREATE + UPDATE */
+
+        .edit-form-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            padding: 120px 20px 40px;
+            overflow-y: auto;
+            z-index: 950;
+        }
+
+        .edit-form-container.open {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: all;
+        }
+
+        .edit-form-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .edit-form-content h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #6ec585;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .allergenes-checkboxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            font-weight: normal;
+        }
+
+        .checkbox-label input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .form-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .section-title{
+            padding-bottom: 20px;
+        }
+
+        .btn-cancel-edit {
+            width: 180px;
+            background-color: #fb6666;
+            color: white;
+            border: none;
+            padding: 12px 40px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn-cancel-edit:hover {
+            background-color: #f02b32;
+            
+        }
+
+        .btn-save {
+            width: 180px;
+            background-color: #6ec585;
+            color: white;
+            border: none;
+            padding: 12px 40px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn-save:hover {
+            background-color: #1fc74c;
+        }
+
+@media (max-width: 480px) {
+
+        .secondMenu {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .description{
+            text-align: center;
+        }
+
+
+        #cardsContainer{
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        .form-row {
+            flex-direction: column;
+    }
+
+
+        .form-group input[type="file"] {
+            padding: 8px;
+            border: 2px dashed #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #fafafa;
+        }
+
+        .form-group input[type="file"]:hover {
+            border-color: #6ec585;
+            background: #f0f9f4;
+        }
+
+        .current-image {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .current-image img {
+            max-width: 300px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .current-image p {
+            margin-top: 8px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .plates-images-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .plate-image-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .current-plate-image {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .current-plate-image img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+
+        .current-plate-image p {
+            font-size: 0.9rem;
+            color: #333;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .plate-image-item input[type="file"] {
+            width: 100%;
+            font-size: 0.85rem;
+        }
+
+        .plate-image-item small {
+            display: block;
+            margin-top: 5px;
+            color: #999;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+
+        footer {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 30px 20px;
+        }
+         .plates-images-grid {
+        grid-template-columns: 1fr;
+    }
+    
+        .current-image img {
+        max-width: 100%;
+    }
+}
+        
