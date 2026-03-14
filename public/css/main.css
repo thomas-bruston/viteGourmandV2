@@ -224,7 +224,7 @@ header {
 .footer-link:last-child  { justify-self: end;   margin-right: 5px; }
 .footer-time {
     justify-self: center;
-    color: var(--color-vert-clair);
+    color: var(--color-blanc);
     text-align: center;
     font-family: var(--font-lucida);
 }

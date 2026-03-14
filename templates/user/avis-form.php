@@ -41,14 +41,22 @@ ob_start();
         </div>
 
      <div class="note-container">
-        <p>Votre note <span aria-hidden="true">*</span></p>
-        <div class="stars-container" id="stars-container">
-            <?php for ($i = 1; $i <= 5; $i++): ?>
-                <span class="star" data-value="<?= $i ?>">★</span>
-            <?php endfor; ?>
-        </div>
-        <input type="hidden" name="note" id="note-value" value="<?= $old['note'] ?? 5 ?>">
+    <p id="label-note">Votre note <span aria-hidden="true">*</span></p>
+    <div class="stars-container" 
+         id="stars-container" 
+         role="radiogroup" 
+         aria-labelledby="label-note">
+        <?php for ($i = 1; $i <= 5; $i++): ?>
+        <span class="star" 
+              data-value="<?= $i ?>"
+              role="radio"
+              tabindex="0"
+              aria-checked="<?= ($old['note'] ?? 5) == $i ? 'true' : 'false' ?>"
+              aria-label="<?= $i ?> étoile<?= $i > 1 ? 's' : '' ?> sur 5">★</span>
+        <?php endfor; ?>
     </div>
+    <input type="hidden" name="note" id="note-value" value="<?= $old['note'] ?? 5 ?>">
+</div>
 
         <!-- Commentaire -->
         <div>
