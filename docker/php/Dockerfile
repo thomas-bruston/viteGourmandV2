@@ -23,6 +23,11 @@ RUN docker-php-ext-install \
     bcmath \
     gd
 
+# Configuration PHP sessions
+RUN echo "session.save_path = /tmp/sessions" >> /usr/local/etc/php/conf.d/sessions.ini \
+    && mkdir -p /tmp/sessions \
+    && chown www-data:www-data /tmp/sessions
+
 # Extension MongoDB
 RUN pecl install mongodb \
     && docker-php-ext-enable mongodb
