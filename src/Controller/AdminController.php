@@ -1,4 +1,5 @@
 <?php
+// Feature : espace admin — gestion employés, statistiques MongoDB
 
 declare(strict_types=1);
 
