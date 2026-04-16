@@ -1,4 +1,5 @@
 <?php
+// Feature : menus publics — liste, détail, filtres AJAX
 
 declare(strict_types=1);
 
