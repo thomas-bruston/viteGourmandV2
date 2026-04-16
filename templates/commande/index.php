@@ -93,11 +93,13 @@ ob_start();
                                     readonly aria-readonly="true">
                             </div>
 
+                         
                             <div class="form-group">
-                                <label>Nombre de personnes</label>
+                                <label for="personnes-<?= (int)$commande->getCommandeId() ?>">Nombre de personnes</label>
                                 <input type="number"
-                                       value="<?= (int)$commande->getNombrePersonnes() ?>"
-                                       readonly aria-readonly="true">
+                                    id="personnes-<?= (int)$commande->getCommandeId() ?>"
+                                    value="<?= (int)$commande->getNombrePersonnes() ?>"
+                                    readonly aria-readonly="true">
                             </div>
 
                             <div class="form-group">
@@ -105,6 +107,7 @@ ob_start();
                                 <input type="date"
                                        id="date-<?= (int)$commande->getCommandeId() ?>"
                                        name="date_prestation"
+                                       aria-label="Date de prestation — format jour/mois/année"
                                        value="<?= htmlspecialchars($commande->getDatePrestation()) ?>"
                                        min="<?= date('Y-m-d', strtotime('+6 days')) ?>"
                                        <?= !$peutModifier ? 'readonly aria-readonly="true"' : '' ?>>
@@ -115,16 +118,18 @@ ob_start();
                                 <input type="time"
                                        id="heure-<?= (int)$commande->getCommandeId() ?>"
                                        name="heure_livraison"
+                                       aria-label="Heure de livraison — format heures:minutes"
                                        value="<?= htmlspecialchars(substr($commande->getHeureLivraison(), 0, 5)) ?>"
                                        min="09:00" max="20:00"
                                        <?= !$peutModifier ? 'readonly aria-readonly="true"' : '' ?>>
                             </div>
 
                             <div class="form-group">
-                                <label>Prix total</label>
+                                <label for="prix-<?= (int)$commande->getCommandeId() ?>">Prix total</label>
                                 <input type="text"
-                                       value="<?= number_format($commande->getPrixTotal(), 2, ',', ' ') ?> €"
-                                       readonly aria-readonly="true">
+                                    id="prix-<?= (int)$commande->getCommandeId() ?>"
+                                    value="<?= number_format($commande->getPrixTotal(), 2, ',', ' ') ?> €"
+                                    readonly aria-readonly="true">
                             </div>
 
                             <!-- ACTIONS -->

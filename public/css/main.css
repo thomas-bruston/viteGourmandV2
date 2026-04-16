@@ -224,7 +224,7 @@ header {
 .footer-link:last-child  { justify-self: end;   margin-right: 5px; }
 .footer-time {
     justify-self: center;
-    color: var(--color-vert-clair);
+    color: var(--color-blanc);
     text-align: center;
     font-family: var(--font-lucida);
 }
@@ -346,7 +346,7 @@ header {
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 780px) {
     header { padding-right: 80px; }
     .navbar { margin: 0; }
     .header-btn { display: none; }

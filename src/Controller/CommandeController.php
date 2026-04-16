@@ -1,4 +1,5 @@
 <?php
+// Feature : commandes — création, suivi, modification, annulation
 
 declare(strict_types=1);
 
@@ -52,103 +53,115 @@ class CommandeController extends Controller
         ]);
     }
 
-    public function showForm(): void
-    {
-        $menuId          = (int) ($this->get('menu_id') ?: $this->post('menu_id'));
-        $nombrePersonnes = (int) ($this->get('nombre_personnes') ?: 0);
-        $menu            = $menuId > 0 ? $this->menuRepository->findById($menuId) : null;
+   public function showForm(): void
+{
+    $menuId          = (int) ($this->get('menu_id') ?: $this->post('menu_id'));
+    $nombrePersonnes = (int) ($this->get('nombre_personnes') ?: 0);
+    $menu            = $menuId > 0 ? $this->menuRepository->findById($menuId) : null;
 
-        $userId      = Session::getUserId();
-        $utilisateur = $this->utilisateurRepository->findById($userId);
-
-        $prixMenu      = 0;
-        $prixLivraison = 5.00;
-        $prixTotal     = 5.00;
-
-        if ($menu) {
-            if ($nombrePersonnes < $menu->getNombrePersonneMinimum()) {
-                $nombrePersonnes = $menu->getNombrePersonneMinimum();
-            }
-
-            $prix = $this->priceService->calculerTotal(
-                $menu,
-                $nombrePersonnes,
-                '33000'
-            );
-            $prixMenu      = $prix['prix_menu'];
-            $prixLivraison = $prix['prix_livraison'];
-            $prixTotal     = $prix['prix_total'];
-        }
-
-        $this->render('commande/create', [
-            'csrf_token'      => Session::generateCsrfToken(),
-            'menu'            => $menu,
-            'utilisateur'     => $utilisateur,
-            'nombrePersonnes' => $nombrePersonnes,
-            'prixMenu'        => $prixMenu,
-            'prixLivraison'   => $prixLivraison,
-            'prixTotal'       => $prixTotal,
-            'error'           => Session::getFlash('error'),
-        ]);
+    // le contrôleur garantit que la vue reçoit toujours un menu valide
+    if ($menu === null) {
+        Session::setFlash('error', 'Veuillez sélectionner un menu pour commander.');
+        $this->redirect('/menus');
     }
 
-    public function store(): void
-    {
-        $this->verifyCsrf();
-        
+    $userId      = Session::getUserId();
+    $utilisateur = $this->utilisateurRepository->findById($userId);
 
-        $menuId          = (int) $this->post('menu_id');
-        $nombrePersonnes = (int) $this->post('nombre_personnes');
-        $datePrestation  = trim($this->post('date_prestation'));
-        $heureLivraison  = trim($this->post('heure_livraison'));
-        $adresse         = trim($this->post('adresse_livraison'));
-        $codePostal      = trim($this->post('code_postal_livraison'));
-        $ville           = trim($this->post('ville_livraison'));
-        $distanceKm           = (float) $this->post('distance_km', 0);
-        $prixLivraisonCalcule = (float) $this->post('prix_livraison_calcule', 5.00); 
-       
+    if ($nombrePersonnes < $menu->getNombrePersonneMinimum()) {
+        $nombrePersonnes = $menu->getNombrePersonneMinimum();
+    }
 
-        if (!$menuId || !$nombrePersonnes || !$datePrestation || !$heureLivraison || !$adresse || !$codePostal || !$ville) {
-            Session::setFlash('error', 'Tous les champs sont obligatoires.');
-            $this->redirect('/commander');
-        }
+    $prix = $this->priceService->calculerTotal(
+        $menu,
+        $nombrePersonnes,
+        '33000'
+    );
 
-        $menu = $this->menuRepository->findById($menuId);
-        if ($menu === null) {
-            Session::setFlash('error', 'Menu introuvable.');
-            $this->redirect('/commander');
-        }
-
-        if ($menu->getQuantiteRestante() < $nombrePersonnes) {
-            Session::setFlash('error', 'Désolé, il ne reste que ' . $menu->getQuantiteRestante() . ' menus disponibles.');
-            $this->redirect('/commander?menu_id=' . $menuId);
-        }
-
-        try {
-            $prix = $this->priceService->calculerTotal($menu, $nombrePersonnes, $codePostal, $distanceKm);
-            if ($prixLivraisonCalcule > 5.00) {
-                $prix['prix_livraison'] = $prixLivraisonCalcule;
-                $prix['prix_total']     = round($prix['prix_menu'] + $prixLivraisonCalcule, 2);
+    $this->render('commande/create', [
+        'csrf_token'      => Session::generateCsrfToken(),
+        'menu'            => $menu,
+        'utilisateur'     => $utilisateur,
+        'nombrePersonnes' => $nombrePersonnes,
+        'prixMenu'        => $prix['prix_menu'],
+        'prixLivraison'   => $prix['prix_livraison'],
+        'prixTotal'       => $prix['prix_total'],
+        'error'           => Session::getFlash('error'),
+    ]);
 }
-            $commande = new Commande();
-            $commande->setUtilisateurId(Session::getUserId());
-            $commande->setMenuId($menuId);
-            $commande->setNumeroCommande($this->commandeRepository->generateNumeroCommande());
-            $commande->setDatePrestation($datePrestation);
-            $commande->setHeureLivraison($heureLivraison);
-            $commande->setAdresseLivraison($adresse);
-            $commande->setCodePostalLivraison($codePostal);
-            $commande->setVilleLivraison($ville);
-            $commande->setNombrePersonnes($nombrePersonnes);
-            $commande->setPrixMenu($prix['prix_menu']);
-            $commande->setPrixLivraison($prix['prix_livraison']);
-            $commande->setPrixTotal($prix['prix_total']);
 
-            $commandeId = $this->commandeRepository->create($commande);
+public function store(): void
+{
+    $this->verifyCsrf();
 
-            $this->commandeRepository->updateStatut($commandeId, Commande::STATUT_EN_ATTENTE, 'Commande reçue');
-            $this->menuRepository->decrementerQuantite($menuId, $nombrePersonnes);
+    // --- Récupération et validation des inputs ---
+    $menuId          = (int) $this->post('menu_id');
+    $nombrePersonnes = (int) $this->post('nombre_personnes');
+    $datePrestation  = trim($this->post('date_prestation'));
+    $heureLivraison  = trim($this->post('heure_livraison'));
+    $adresse         = trim($this->post('adresse_livraison'));
+    $codePostal      = trim($this->post('code_postal_livraison'));
+    $ville           = trim($this->post('ville_livraison'));
+    $distanceKm           = (float) $this->post('distance_km', 0);
+    $prixLivraisonCalcule = (float) $this->post('prix_livraison_calcule', 5.00);
 
+    if (!$menuId || !$nombrePersonnes || !$datePrestation
+        || !$heureLivraison || !$adresse || !$codePostal || !$ville) {
+        Session::setFlash('error', 'Tous les champs sont obligatoires.');
+        $this->redirect('/commander');
+    }
+
+    $menu = $this->menuRepository->findById($menuId);
+    if ($menu === null) {
+        Session::setFlash('error', 'Menu introuvable.');
+        $this->redirect('/commander');
+    }
+
+    if ($menu->getQuantiteRestante() < $nombrePersonnes) {
+        Session::setFlash('error',
+            'Désolé, il ne reste que ' . $menu->getQuantiteRestante() . ' place(s) disponible(s).'
+        );
+        $this->redirect('/commander?menu_id=' . $menuId);
+    }
+
+    // ✅ Déclaré AVANT le try pour être accessible dans les catch
+    $pdo = \Core\Database::getInstance()->getConnection();
+
+    try {
+        $pdo->beginTransaction();
+
+        // Calcul du prix
+        $prix = $this->priceService->calculerTotal($menu, $nombrePersonnes, $codePostal, $distanceKm);
+        if ($prixLivraisonCalcule > 5.00) {
+            $prix['prix_livraison'] = $prixLivraisonCalcule;
+            $prix['prix_total']     = round($prix['prix_menu'] + $prixLivraisonCalcule, 2);
+        }
+
+        // Création de la commande
+        $commande = new Commande();
+        $commande->setUtilisateurId(Session::getUserId());
+        $commande->setMenuId($menuId);
+        $commande->setNumeroCommande($this->commandeRepository->generateNumeroCommande());
+        $commande->setDatePrestation($datePrestation);
+        $commande->setHeureLivraison($heureLivraison);
+        $commande->setAdresseLivraison($adresse);
+        $commande->setCodePostalLivraison($codePostal);
+        $commande->setVilleLivraison($ville);
+        $commande->setNombrePersonnes($nombrePersonnes);
+        $commande->setPrixMenu($prix['prix_menu']);
+        $commande->setPrixLivraison($prix['prix_livraison']);
+        $commande->setPrixTotal($prix['prix_total']);
+
+        $commandeId = $this->commandeRepository->create($commande);
+        $this->commandeRepository->updateStatut($commandeId, Commande::STATUT_EN_ATTENTE, 'Commande reçue');
+
+        // Décrémentation atomique
+        $this->menuRepository->decrementerQuantite($menuId, $nombrePersonnes);
+
+        $pdo->commit();
+
+        // Mail hors transaction (échec non critique)
+        try {
             $utilisateur = $this->utilisateurRepository->findById(Session::getUserId());
             $this->mailService->sendConfirmationCommande(
                 $utilisateur->getEmail(),
@@ -158,15 +171,34 @@ class CommandeController extends Controller
                 $datePrestation,
                 $prix['prix_total']
             );
-
-            Session::setFlash('success', 'Votre commande ' . $commande->getNumeroCommande() . ' a bien été enregistrée !');
-            $this->redirect('/mes-commandes');
-
-        } catch (\InvalidArgumentException $e) {
-            Session::setFlash('error', $e->getMessage());
-            $this->redirect('/commander?menu_id=' . $menuId);
+        } catch (\Exception $e) {
+            error_log('[CommandeController::store] Échec envoi mail : ' . $e->getMessage());
         }
+
+        Session::setFlash('success',
+            'Votre commande ' . $commande->getNumeroCommande() . ' a bien été enregistrée !'
+        );
+        $this->redirect('/mes-commandes');
+
+    } catch (\RuntimeException $e) {
+        // ✅ inTransaction() avant tout rollBack()
+        if ($pdo->inTransaction()) {
+            $pdo->rollBack();
+        }
+        Session::setFlash('error',
+            'Ce menu n\'est plus disponible en quantité suffisante. Veuillez vérifier votre commande.'
+        );
+        error_log('[CommandeController::store] ' . $e->getMessage());
+        $this->redirect('/commander?menu_id=' . $menuId);
+
+    } catch (\InvalidArgumentException $e) {
+        if ($pdo->inTransaction()) {
+            $pdo->rollBack();
+        }
+        Session::setFlash('error', $e->getMessage());
+        $this->redirect('/commander?menu_id=' . $menuId);
     }
+}
 
     public function annuler(): void
     {
