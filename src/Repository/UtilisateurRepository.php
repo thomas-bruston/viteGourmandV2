@@ -149,25 +149,26 @@ class UtilisateurRepository extends AbstractRepository
      * @return Utilisateur[]
      */
     public function findAllEmployes(): array
-    {
-        try {
-            $stmt = $this->pdo->prepare(
-                'SELECT u.*, r.libelle AS role_libelle
-                 FROM utilisateur u
-                 INNER JOIN role r ON u.role_id = r.role_id
-                 WHERE r.libelle = :role
-                 ORDER BY u.nom ASC'
-            );
-            $stmt->execute([':role' => 'employe']);
-            $rows = $stmt->fetchAll();
+{
+    try {
+        $stmt = $this->pdo->prepare(
+            'SELECT u.*, r.libelle AS role_libelle
+             FROM utilisateur u
+             INNER JOIN role r ON u.role_id = r.role_id
+             WHERE r.libelle = :role
+             AND u.statut = 1
+             ORDER BY u.nom ASC'
+        );
+        $stmt->execute([':role' => 'employe']);
+        $rows = $stmt->fetchAll();
 
-            return array_map(fn($row) => Utilisateur::fromArray($row), $rows);
+        return array_map(fn($row) => Utilisateur::fromArray($row), $rows);
 
-        } catch (PDOException $e) {
-            error_log('[UtilisateurRepository::findAllEmployes] ' . $e->getMessage());
-            throw new \RuntimeException('Erreur lors de la récupération des employés.');
-        }
+    } catch (PDOException $e) {
+        error_log('[UtilisateurRepository::findAllEmployes] ' . $e->getMessage());
+        throw new \RuntimeException('Erreur lors de la récupération des employés.');
     }
+}
 
     /**
      * Active ou désactive un utilisateur necessaire ????
