@@ -147,36 +147,30 @@ class CommandeRepository extends AbstractRepository
     /* MAJ statut commande */
 
     public function updateStatut(int $commandeId, string $statut, ?string $commentaire = null): bool
-    {
-        try {
-            $this->pdo->beginTransaction();
+{
+    try {
+        $stmt = $this->pdo->prepare(
+            'UPDATE commande SET statut = :statut WHERE commande_id = :id'
+        );
+        $stmt->execute([':statut' => $statut, ':id' => $commandeId]);
 
-            
-            $stmt = $this->pdo->prepare(
-                'UPDATE commande SET statut = :statut WHERE commande_id = :id'
-            );
-            $stmt->execute([':statut' => $statut, ':id' => $commandeId]);
+        $stmt = $this->pdo->prepare(
+            'INSERT INTO suivi_commande (commande_id, statut, commentaire)
+             VALUES (:commande_id, :statut, :commentaire)'
+        );
+        $stmt->execute([
+            ':commande_id' => $commandeId,
+            ':statut'      => $statut,
+            ':commentaire' => $commentaire,
+        ]);
 
-            
-            $stmt = $this->pdo->prepare(
-                'INSERT INTO suivi_commande (commande_id, statut, commentaire)
-                 VALUES (:commande_id, :statut, :commentaire)'
-            );
-            $stmt->execute([
-                ':commande_id' => $commandeId,
-                ':statut'      => $statut,
-                ':commentaire' => $commentaire,
-            ]);
+        return true;
 
-            $this->pdo->commit();
-            return true;
-
-        } catch (PDOException $e) {
-            $this->pdo->rollBack();
-            error_log('[CommandeRepository::updateStatut] ' . $e->getMessage());
-            throw new \RuntimeException('Erreur lors de la mise à jour du statut.');
-        }
+    } catch (PDOException $e) {
+        error_log('[CommandeRepository::updateStatut] ' . $e->getMessage());
+        throw new \RuntimeException('Erreur lors de la mise à jour du statut.');
     }
+}
 
     /* Annulation commande */
 
