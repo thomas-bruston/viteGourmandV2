@@ -40,6 +40,11 @@
             
             transform: translateY(-2px);
             }
+        .filter-button:focus,
+        button:focus {
+            outline: 3px solid var(--color-vert-fonce);
+            outline-offset: 2px;
+        }
             
 /*FILTER MENU*/
 
@@ -187,7 +192,7 @@
         .badge-category {
             display: inline-block;
             background: #ff9a9e;
-            color: #8b4049;
+            color: #8e0717;
             padding: 8px 25px;
             border-radius: 20px;
             font-size: 16px;
@@ -229,7 +234,7 @@
             bottom: -15px;
             right: 20px;
             background:#6ec585;
-            color: #2d5016;
+            color: #224e04;
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -274,7 +279,7 @@
         .badge-diet {
             display: inline-block;
             background-color: #ffd966;
-            color: #8b6914;
+            color: #563e01;
             padding: 8px 20px;
             border-radius: 20px;
             font-size: 16px;

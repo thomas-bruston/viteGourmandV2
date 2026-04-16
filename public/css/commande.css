@@ -318,8 +318,9 @@
 /* BOUTON DESACTIVÉ */
 
         .btn-disabled {
-            background: #ccc;
+            background: #ee0404;
             cursor: not-allowed;
+            color: #fff;
         }
 
         .info-modification {

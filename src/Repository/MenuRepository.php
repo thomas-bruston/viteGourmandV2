@@ -304,11 +304,27 @@ public function decrementerQuantite(int $menuId, int $nombrePersonnes): void
 {
     try {
         $stmt = $this->pdo->prepare(
-            'UPDATE menu SET quantite_restante = quantite_restante - :nb
-             WHERE menu_id = :id AND quantite_restante >= :nb'
+            'UPDATE menu
+             SET quantite_restante = quantite_restante - :nb
+             WHERE menu_id = :id
+               AND quantite_restante >= :nb_check'
         );
-        $stmt->execute([':nb' => $nombrePersonnes, ':id' => $menuId]);
-    } catch (PDOException $e) {
+
+        $stmt->execute([
+            ':nb'       => $nombrePersonnes,
+            ':id'       => $menuId,
+            ':nb_check' => $nombrePersonnes,  // ← paramètre distinct, même valeur
+        ]);
+
+        // Vérification atomique : si 0 ligne affectée = stock épuisé (race condition)
+        if ($stmt->rowCount() === 0) {
+            throw new \RuntimeException(
+                'Stock insuffisant pour le menu #' . $menuId .
+                ' (race condition détectée ou quantité insuffisante).'
+            );
+        }
+
+    } catch (\PDOException $e) {
         error_log('[MenuRepository::decrementerQuantite] ' . $e->getMessage());
         throw new \RuntimeException('Erreur lors de la mise à jour des quantités.');
     }
