@@ -1,4 +1,5 @@
 <?php
+// Feature : authentification — inscription, connexion, logout, reset mot de passe
 
 declare(strict_types=1);
 
