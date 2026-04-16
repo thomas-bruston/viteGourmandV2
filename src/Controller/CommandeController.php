@@ -1,4 +1,5 @@
 <?php
+// Feature : commandes — création, suivi, modification, annulation
 
 declare(strict_types=1);
 
