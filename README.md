@@ -2,6 +2,9 @@
 
 Application web de commande de menus pour un restaurant — Projet DWWM Titre Professionnel Niveau 5.
 
+## Application en production
+https://vitegourmand.tech
+
 ## Stack technique
 
 - **Back-end** : PHP 8.3 (POO, sans framework)
