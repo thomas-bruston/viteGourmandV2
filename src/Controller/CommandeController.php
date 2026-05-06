@@ -48,8 +48,7 @@ class CommandeController extends Controller
 
         $this->render('commande/index', [
             'commandes' => $commandesEnrichies,
-            'success'   => Session::getFlash('success'),
-            'error'     => Session::getFlash('error'),
+            
         ]);
     }
 
@@ -86,7 +85,7 @@ class CommandeController extends Controller
         'prixMenu'        => $prix['prix_menu'],
         'prixLivraison'   => $prix['prix_livraison'],
         'prixTotal'       => $prix['prix_total'],
-        'error'           => Session::getFlash('error'),
+        
     ]);
 }
 

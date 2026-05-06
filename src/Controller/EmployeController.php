@@ -35,7 +35,7 @@ class EmployeController extends Controller
 
         $this->render('employee/dashboard', [
             'commandes' => $commandes,
-            'success'   => Session::getFlash('success'),
+            
         ]);
     }
 
@@ -55,8 +55,7 @@ class EmployeController extends Controller
             'commandes'      => $commandes,
             'statuts_valides' => Commande::STATUTS_VALIDES,
             'filtre_statut'  => $this->get('statut'),
-            'success'        => Session::getFlash('success'),
-            'error'          => Session::getFlash('error'),
+           
         ]);
     }
 

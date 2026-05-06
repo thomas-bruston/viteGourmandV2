@@ -110,8 +110,7 @@ class MenuController extends Controller
 
         $this->render('employee/menus/index', [
             'menus'   => $menus,
-            'success' => Session::getFlash('success'),
-            'error'   => Session::getFlash('error'),
+           
         ]);
     }
     public function showCreate(): void
@@ -121,7 +120,7 @@ class MenuController extends Controller
         'themes'         => $this->menuRepository->findAllThemes(),
         'regimes'        => $this->menuRepository->findAllRegimes(),
         'tousAllergenes' => $this->platRepository->findAllAllergenes(),
-        'error'          => Session::getFlash('error'),
+       
     ]);
 }
 public function create(): void
@@ -215,7 +214,7 @@ public function create(): void
         'themeIds'       => $this->menuRepository->getThemeIds($menuId),
         'regimeIds'      => $this->menuRepository->getRegimeIds($menuId),
         'allergeneIds'   => $this->platRepository->findAllergeneIdsByMenuId($menuId),
-        'error'          => Session::getFlash('error'),
+        
     ]);
 }
 

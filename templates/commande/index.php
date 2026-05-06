@@ -4,8 +4,7 @@ $pageCss = 'commande.css';
 ob_start();
 ?>
 
-<main id="main-content" class="container py-4">
-    
+<main id="main-content" class="main-content">
     
 
     <?php if (empty($commandes)): ?>

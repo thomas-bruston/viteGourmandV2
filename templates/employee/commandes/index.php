@@ -21,9 +21,7 @@ ob_start();
         </div>
 
         <div class="user-list">
-            <?php if (empty($commandes)): ?>
-                <p class="text-center py-4">Aucune commande.</p>
-            <?php else: ?>
+            
                 <?php foreach ($commandes as $commande): ?>
                     <div class="user-item"
                          data-commande-id="<?= (int)$commande['commande_id'] ?>"
@@ -70,7 +68,6 @@ ob_start();
 
                     </div>
                 <?php endforeach; ?>
-            <?php endif; ?>
         </div>
     </div>
 </div>

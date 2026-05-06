@@ -109,22 +109,11 @@ class Session
 /* Gestion des messages succès + erreur */
 
 
-    public static function setFlash(string $type, string $message): void
-    {
-        $_SESSION['flash'][$type] = $message;
-    }
+   public static function setFlash(string $type, string $message): void
+{
+    $_SESSION['flash'] = ['type' => $type, 'message' => $message];
+}
 
-    public static function getFlash(string $type): ?string
-    {
-        $message = $_SESSION['flash'][$type] ?? null;
-        unset($_SESSION['flash'][$type]);
-        return $message;
-    }
-
-    public static function hasFlash(string $type): bool
-    {
-        return isset($_SESSION['flash'][$type]);
-    }
 
    /* Gestion tokens CSRF */
 

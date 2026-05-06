@@ -36,8 +36,7 @@ class UserController extends Controller
             'ville'          => $utilisateur->getVille() ?? '',
         ],
         'errors'     => [],
-        'success'    => Session::getFlash('success'),
-        'error'      => Session::getFlash('error'),
+        
     ]);
 }
 

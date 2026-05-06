@@ -5,6 +5,7 @@ ob_start();
 ?>
 
 <!-- VUE DÉTAIL -->
+
 <div id="contentView">
 
     <div class="secondMenu">
@@ -43,6 +44,7 @@ ob_start();
     <p class="description"><?= htmlspecialchars($menu->getDescription()) ?></p>
 
     <!-- PLATS -->
+
     <div id="cardsContainer">
         <?php foreach ($plats as $plat): ?>
             <article class="card" aria-label="Plat : <?= htmlspecialchars($plat->getNom()) ?>">
@@ -64,12 +66,13 @@ ob_start();
 </div>
 
 <!-- FORMULAIRE MODIFICATION -->
+
 <div class="edit-form-content">
 
     <h2>Modifier le menu</h2>
 
     <?php if (!empty($error)): ?>
-        <div class="error-message" role="alert">
+        <div class="flash flash--error" role="alert">
             <?= htmlspecialchars($error) ?>
         </div>
     <?php endif; ?>
@@ -143,7 +146,8 @@ ob_start();
                    accept="image/jpeg,image/png,image/webp">
         </div>
 
-        <!-- Modification des plats -->
+        <!-- MODIF PLATS -->
+
         <div class="form-group">
             <label>Plats du menu</label>
             <div class="plates-images-grid">
@@ -174,7 +178,8 @@ ob_start();
                                    accept="image/jpeg,image/png,image/webp">
                         </div>
 
-                        <!-- Bouton supprimer plat -->
+                        <!-- BTN SUPPRIMER PLATS -->
+
                         <form method="POST" action="/employe/plat/supprimer"
                               onsubmit="return confirm('Supprimer ce plat ?')">
                             <input type="hidden" name="csrf_token"
@@ -192,7 +197,8 @@ ob_start();
             </div>
         </div>
 
-        <!-- Allergènes -->
+        <!-- ALLERGENES -->
+         
         <div class="form-group">
             <fieldset>
                 <legend>Allergènes</legend>

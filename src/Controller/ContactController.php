@@ -27,8 +27,7 @@ class ContactController extends Controller
     {
         $this->render('pages/contact', [
             'csrf_token' => Session::generateCsrfToken(),
-            'error'      => Session::getFlash('error'),
-            'success'    => Session::getFlash('success'),
+            
         ]);
     }
 
@@ -63,7 +62,7 @@ class ContactController extends Controller
 
         $this->render('employee/messages/index', [
             'messages' => $messages,
-            'success'  => Session::getFlash('success'),
+            
         ]);
     }
 

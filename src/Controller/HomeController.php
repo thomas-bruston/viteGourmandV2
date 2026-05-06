@@ -30,8 +30,7 @@ class HomeController extends Controller
         $this->render('home/index', [
             'avis'    => $avis,
             'horaire' => $horaire,
-            'error'   => Session::getFlash('error'),
-            'success' => Session::getFlash('success'),
+           
         ]);
     }
 }
