@@ -17,7 +17,8 @@ class Router
 
     private function registerRoutes(): void
     {
-        //Pages visiteur
+
+/* Pages visiteur */
 
         $this->add('GET',  '/',                'HomeController',    'index',          null);
         $this->add('GET',  '/menus',           'MenuController',    'index',          null);
@@ -28,7 +29,7 @@ class Router
         $this->add('GET',  '/cgv',             'PageController',    'cgv',            null);
         $this->add('GET',  '/mentions',        'PageController',    'mentions',       null);
 
-        //Auth
+/* Auth */
 
         $this->add('GET',  '/inscription',     'AuthController',    'showRegister',   null);
         $this->add('POST', '/inscription',     'AuthController',    'register',       null);
@@ -40,7 +41,7 @@ class Router
         $this->add('GET',  '/reinitialiser-mdp',   'AuthController', 'showReset',    null);
         $this->add('POST', '/reinitialiser-mdp',   'AuthController', 'reset',        null);
 
-        // User
+/* User */
 
         $this->add('GET',  '/mes-informations','UserController',    'showInfos',      'utilisateur');
         $this->add('POST', '/mes-informations','UserController',    'updateInfos',    'utilisateur');
@@ -52,7 +53,7 @@ class Router
         $this->add('GET',  '/avis/nouveau',    'AvisController',    'showForm',       'utilisateur');
         $this->add('POST', '/avis/nouveau',    'AvisController',    'store',          'utilisateur');
 
-        // Employé
+/* Employé */
 
         $this->add('GET',  '/employe',                  'EmployeController', 'dashboard',      'employe');
         $this->add('GET',  '/employe/commandes',        'EmployeController', 'commandes',      'employe');
@@ -71,7 +72,7 @@ class Router
         $this->add('GET',  '/employe/messages',         'ContactController', 'adminIndex',     'employe');
         $this->add('POST', '/employe/messages/supprimer','ContactController','delete',         'employe');
 
-        // -Admin
+/* Admin */
 
         $this->add('GET',  '/admin',                    'AdminController',   'dashboard',      'administrateur');
         $this->add('GET',  '/admin/employes',           'AdminController',   'employes',       'administrateur');
@@ -82,7 +83,7 @@ class Router
         $this->add('GET',  '/admin/stats',              'AdminController',   'statistiques',   'administrateur');
     }
 
-    /* Ajoute route */
+/* Ajoute route */
 
     private function add(
         string  $method,
@@ -94,7 +95,7 @@ class Router
         $this->routes[] = compact('method', 'path', 'controller', 'action', 'role');
     }
 
-    /* Dispatch contrôleur */
+/* Dispatch contrôleur */
 
     public function dispatch(): void
     {
@@ -106,11 +107,11 @@ class Router
         foreach ($this->routes as $route) {
             if ($route['method'] === $method && $route['path'] === $uri) {
 
-                // Vérif role
+                /* Vérif role */
 
                 $this->checkAccess($route['role']);
 
-                // Instance
+                /* Instance */
 
                 $controllerClass = 'Controller\\' . $route['controller'];
                 $action          = $route['action'];
@@ -132,12 +133,12 @@ class Router
             }
         }
 
-        // Erreur 404
+        /* Erreur 404 */
 
         $this->abort(404);
     }
 
-    /* Vérif acces avec role */
+/* Vérif acces avec role */
 
     private function checkAccess(?string $requiredRole): void
     {
@@ -154,7 +155,7 @@ class Router
 
         $userRole = Session::getUserRole();
 
-        // Hiérarchie 
+/* Hiérarchie */
 
         $hierarchy = ['utilisateur' => 1, 'employe' => 2, 'administrateur' => 3];
 
@@ -166,7 +167,7 @@ class Router
         }
     }
 
-    /* Gestion erreurs */
+/* Gestion erreurs */
     
     private function abort(int $code, string $message = ''): void
     {
@@ -180,7 +181,7 @@ class Router
 
         $display = $message ?: ($messages[$code] ?? 'Erreur inconnue.');
 
-        // Erreur generoque
+/* Erreur generoque */
 
         include TEMPLATES_PATH . '/errors/' . $code . '.php'
             ?: require_once TEMPLATES_PATH . '/errors/generic.php';

@@ -56,7 +56,7 @@ class UserController extends Controller
 
             $this->utilisateurRepository->update($utilisateur);
 
-            // MAJ session
+/* MAJ session */
             
             Session::set('user_nom',    $utilisateur->getNom());
             Session::set('user_prenom', $utilisateur->getPrenom());

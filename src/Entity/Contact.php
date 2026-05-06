@@ -36,7 +36,7 @@ class Contact
         $this->lu        = $lu;
     }
 
-    /* Getters */
+/* Getters */
 
     public function getContactId(): ?int  { return $this->contactId; }
     public function getNom(): string      { return $this->nom; }
@@ -47,7 +47,7 @@ class Contact
     public function getDateEnvoi(): ?string { return $this->dateEnvoi; }
     public function isLu(): bool          { return $this->lu; }
 
-    /* Setters */
+/* Setters */
 
     public function setContactId(?int $id): void { $this->contactId = $id; }
     public function setLu(bool $lu): void         { $this->lu = $lu; }

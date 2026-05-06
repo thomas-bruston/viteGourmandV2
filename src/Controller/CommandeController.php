@@ -1,5 +1,5 @@
 <?php
-// Feature : commandes — création, suivi, modification, annulation
+// Feat : commandes, création, suivi, modification, annulation
 
 declare(strict_types=1);
 
@@ -58,7 +58,6 @@ class CommandeController extends Controller
     $nombrePersonnes = (int) ($this->get('nombre_personnes') ?: 0);
     $menu            = $menuId > 0 ? $this->menuRepository->findById($menuId) : null;
 
-    // le contrôleur garantit que la vue reçoit toujours un menu valide
     if ($menu === null) {
         Session::setFlash('error', 'Veuillez sélectionner un menu pour commander.');
         $this->redirect('/menus');
@@ -93,7 +92,8 @@ public function store(): void
 {
     $this->verifyCsrf();
 
-    // --- Récupération et validation des inputs ---
+    /* Récup et valid des inputs */
+
     $menuId          = (int) $this->post('menu_id');
     $nombrePersonnes = (int) $this->post('nombre_personnes');
     $datePrestation  = trim($this->post('date_prestation'));
@@ -123,20 +123,22 @@ public function store(): void
         $this->redirect('/commander?menu_id=' . $menuId);
     }
 
-    // ✅ Déclaré AVANT le try pour être accessible dans les catch
+
     $pdo = \Core\Database::getInstance()->getConnection();
 
     try {
         $pdo->beginTransaction();
 
-        // Calcul du prix
+        /* Calcul prix */
+
         $prix = $this->priceService->calculerTotal($menu, $nombrePersonnes, $codePostal, $distanceKm);
         if ($prixLivraisonCalcule > 5.00) {
             $prix['prix_livraison'] = $prixLivraisonCalcule;
             $prix['prix_total']     = round($prix['prix_menu'] + $prixLivraisonCalcule, 2);
         }
 
-        // Création de la commande
+        /* Créa commande */
+
         $commande = new Commande();
         $commande->setUtilisateurId(Session::getUserId());
         $commande->setMenuId($menuId);
@@ -154,12 +156,14 @@ public function store(): void
         $commandeId = $this->commandeRepository->create($commande);
         $this->commandeRepository->updateStatut($commandeId, Commande::STATUT_EN_ATTENTE, 'Commande reçue');
 
-        // Décrémentation atomique
+        /* Décrémente */
+
         $this->menuRepository->decrementerQuantite($menuId, $nombrePersonnes);
 
         $pdo->commit();
 
-        // Mail hors transaction (échec non critique)
+        /* Mail */
+
         try {
             $utilisateur = $this->utilisateurRepository->findById(Session::getUserId());
             $this->mailService->sendConfirmationCommande(
@@ -180,7 +184,7 @@ public function store(): void
         $this->redirect('/mes-commandes');
 
     } catch (\RuntimeException $e) {
-        // ✅ inTransaction() avant tout rollBack()
+        
         if ($pdo->inTransaction()) {
             $pdo->rollBack();
         }

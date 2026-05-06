@@ -18,7 +18,8 @@ ob_start();
          Messages
     </a>
 
-    <!-- Admin -->
+<!-- Admin -->
+
     <a href="/admin/employes" class="menu-btn">
          Gestion des employés
     </a>
@@ -26,7 +27,8 @@ ob_start();
         Statistiques
     </a>
 
-    <!-- Horaires -->
+<!-- Horaires -->
+
     <button class="menu-btn" id="timeBtn"
             aria-expanded="false"
             aria-controls="timeMenu">
@@ -39,7 +41,8 @@ ob_start();
 
 </div>
 
-<!-- PANNEAU HORAIRES -->
+<!-- Panneau horaires -->
+
 <nav class="time-menu" id="timeMenu" aria-hidden="true" aria-label="Modifier les horaires">
     <h2>HORAIRES</h2>
     <form method="POST" action="/employe/horaires/modifier" novalidate>

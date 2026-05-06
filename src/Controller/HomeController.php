@@ -9,7 +9,7 @@ use Core\Session;
 use Repository\AvisRepository;
 use Repository\HoraireRepository;
 
-/*HomeController */
+/* HomeController */
 
 class HomeController extends Controller
 {

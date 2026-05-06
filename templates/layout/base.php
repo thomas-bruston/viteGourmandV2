@@ -15,7 +15,8 @@
           crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/css/main.css">
 
-    <!-- CSS spécifique à la page (optionnel) necessaire ????--> 
+<!-- CSS PAGE--> 
+
     <?php if (!empty($pageCss)): ?>
         <link rel="stylesheet" href="/css/<?= htmlspecialchars($pageCss) ?>">
     <?php endif; ?>
@@ -26,7 +27,9 @@
 
     <?php require_once ROOT_PATH . '/templates/layout/header.php'; ?>
 
-    <!-- Flash message -->
+    
+<!-- FlASH MESSAGE -->
+
     <?php if (!empty($_SESSION['flash'])): ?>
         <div class="flash flash--<?= htmlspecialchars($_SESSION['flash']['type']) ?>" 
              id="flashMsg" 
@@ -43,15 +46,15 @@
         </script>
     <?php endif; ?>
 
-    <!-- Contenu de la page -->
+<!-- CONTENU PAGE -->
+
     <?= $content ?>
 
     <?php require_once ROOT_PATH . '/templates/layout/footer.php'; ?>
 
- 
-    <script src="/js/main.js"></script>
 
-    <!-- JS spécifique à la page (optionnel) necessaire ???? -->
+<!-- JS PAGE -->
+
     <?php if (!empty($pageJs)): ?>
         <script src="/js/<?= htmlspecialchars($pageJs) ?>"></script>
     <?php endif; ?>

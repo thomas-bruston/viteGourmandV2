@@ -24,7 +24,7 @@ class MenuController extends Controller
         $this->platRepository = new PlatRepository();
     }
 
-    /* Liste des menus + filtres */
+/* Liste des menus + filtres */
 
     public function index(): void
     {
@@ -40,7 +40,7 @@ class MenuController extends Controller
     }
 
     
-     /* filtres*/
+/* filtres*/
      
     public function filtres(): void
 {
@@ -59,13 +59,13 @@ class MenuController extends Controller
 
     $menus = $this->menuRepository->findWithFilters($filters);
 
-    // Retourne HTML 
-    extract(['menus' => $menus]);
+  
+   
     require_once TEMPLATES_PATH . '/menus/cards.php';
     exit;
 }
 
-    /* Détail menu */
+/* Détail menu */
 
     public function detail(): void
 {
@@ -81,7 +81,7 @@ class MenuController extends Controller
         $this->redirect('/menus');
     }
 
-    // Récupére plats + allergènes
+/* Récupére plats + allergènes */
     
     $plats = $menu->getPlats();
     $allergenes = [];
@@ -100,9 +100,9 @@ class MenuController extends Controller
     ]);
 }
 
-    // 
-    // Espace employé — CRUD
-    // 
+
+/* Espace employé — CRUD */
+
 
     public function adminIndex(): void
     {
@@ -130,7 +130,6 @@ public function create(): void
     try {
         $imageService = new \Service\ImageService();
 
-        // Upload image menu
         $imageMenu = $imageService->upload(
             $_FILES['menu_image'],
             'images/menus'
@@ -151,7 +150,7 @@ public function create(): void
         $this->menuRepository->syncThemes($menuId, $themeIds);
         $this->menuRepository->syncRegimes($menuId, $regimeIds);
 
-        // Créer les plats
+
         $platsData = $this->post('plats', []);
         foreach ($platsData as $i => $platData) {
             $nom         = trim($platData['nom'] ?? '');
@@ -162,7 +161,6 @@ public function create(): void
                 continue;
             }
 
-            // Upload image plat
             $imagePlat = '';
             if (!empty($_FILES['plats']['tmp_name'][$i]['image'])) {
                 $filePlat = [
@@ -237,7 +235,6 @@ public function update(): void
         $menu->setNombrePersonneMinimum((int) $this->post('nombre_personne_minimum'));
         $menu->setPrixParPersonne((float) $this->post('prix_par_personne'));
 
-        // Upload nouvelle image menu si fournie
         if (!empty($_FILES['menu_image']['tmp_name'])) {
             $nouvelleImage = $imageService->upload($_FILES['menu_image'], 'images/menus');
             $menu->setImage($nouvelleImage);
@@ -250,7 +247,7 @@ public function update(): void
         $this->menuRepository->syncThemes($menuId, $themeIds);
         $this->menuRepository->syncRegimes($menuId, $regimeIds);
 
-        // MAJ des plats
+
         $platsData = $this->post('plats', []);
         foreach ($platsData as $platId => $platData) {
             $nom = trim($platData['nom'] ?? '');
@@ -258,7 +255,8 @@ public function update(): void
                 $this->platRepository->updateNom((int) $platId, $nom);
             }
 
-            // Upload nouvelle image plat si fournie
+/* Upload nouvelle image plat */
+
             if (!empty($_FILES['plat_photos']['tmp_name'][$platId])) {
                 $filePlat = [
                     'tmp_name' => $_FILES['plat_photos']['tmp_name'][$platId],

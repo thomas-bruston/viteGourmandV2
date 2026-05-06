@@ -74,11 +74,11 @@ async function calculerFraisLivraison() {
         const coordsRestaurant = await geocoderAdresse(ADRESSE_RESTAURANT);
         await delay(1100);
         const coordsClient = await geocoderAdresse(adresseComplete);
-        await delay(200);
         const distance = await calculerDistance(coordsRestaurant, coordsClient);
         const prixLivraison = calculerPrixLivraison(distance, codePostal);
 
-        // Stocker la vraie distance dans le champ caché
+/* STOCK DISTANCE HIDDEN FIELD */
+
         const champDistance = document.getElementById('distance_km');
         if (champDistance) champDistance.value = distance.toFixed(2);
         
@@ -104,19 +104,4 @@ document.addEventListener('DOMContentLoaded', function () {
         villeInput.addEventListener('blur',      calculerFraisLivraison);
     }
 
-    // Bloquer la soumission si distance pas encore calculée
-    const form = document.querySelector('form');
-    if (form) {
-        form.addEventListener('submit', async function (e) {
-            const codePostal = document.getElementById('code_postal_livraison')?.value.trim();
-            const champDistance = document.getElementById('distance_km');
-            const distance = champDistance?.value;
-
-            if (codePostal && codePostal !== '33000' && (!distance || distance === '0')) {
-                e.preventDefault();
-                await calculerFraisLivraison();
-                form.submit();
-            }
-        });
-    }
 });

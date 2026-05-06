@@ -102,6 +102,7 @@ ob_start();
 </div>
 
 <!-- MOTIF ANNULATION -->
+ 
 <div class="motif-container" id="motif-container" aria-hidden="true" aria-label="Saisir le motif d'annulation">
     <div class="motif-header">
         <h3 class="motif-title">Motif d'annulation</h3>

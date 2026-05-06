@@ -80,7 +80,7 @@ class Commande
 
     }
 
-    /* Getters */
+/* Getters */
 
     public function getCommandeId(): ?int             { return $this->commandeId; }
     public function getUtilisateurId(): int           { return $this->utilisateurId; }
@@ -99,7 +99,7 @@ class Commande
     public function getStatut(): string               { return $this->statut; }
     public function getMotifAnnulation(): ?string     { return $this->motifAnnulation; }
 
-    /* Modif commande user */
+/* Modif commande user */
 
     public function estModifiable(): bool
     {
@@ -122,7 +122,7 @@ class Commande
         };
     }
 
-    /* Setters */
+/* Setters */
 
     public function setCommandeId(?int $id): void { $this->commandeId = $id; }
 

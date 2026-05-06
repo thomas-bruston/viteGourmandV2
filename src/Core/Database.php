@@ -37,7 +37,7 @@ class Database
         }
     }
 
-    /* Retourne l'instance unique */
+/* Retourne instance unique */
 
     public static function getInstance(): static
     {
@@ -53,8 +53,7 @@ class Database
         return $this->connection;
     }
 
-    /**
-     * Empêche le clonage (Singleton) necessaire ?
-     */
+    /* Empêche le clonage (Singleton) */
+    
     private function __clone(): void {}
 }

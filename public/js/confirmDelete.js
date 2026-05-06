@@ -1,4 +1,4 @@
-// CONFIRMATION AVANT SUPRESSION
+/* CONFIRMATION AVANT SUPRESSION */
 
 document.addEventListener('DOMContentLoaded', function() {
     const btnSupprimer = document.querySelector('.btn-supprimer');

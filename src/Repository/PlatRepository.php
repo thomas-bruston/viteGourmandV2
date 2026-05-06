@@ -11,10 +11,8 @@ use PDOException;
 
 class PlatRepository extends AbstractRepository
 {
-    /**
-     * Récupère tous les plats d'un menu avec leur catégorie et allergènes
-     * @return Plat[]
-     */
+    /* Récup plats + catégorie + allergènes */
+
     public function findByMenuId(int $menuId): array
     {
         try {
@@ -46,7 +44,7 @@ class PlatRepository extends AbstractRepository
         }
     }
 
-    /* Créer plat */
+/* Créer plat */
 
     public function create(Plat $plat): int
     {
@@ -70,7 +68,7 @@ class PlatRepository extends AbstractRepository
         }
     }
 
-    /* update plat */
+/* update plat */
 
     public function update(Plat $plat): bool
     {
@@ -118,7 +116,7 @@ class PlatRepository extends AbstractRepository
         }
     }
 
-    /* delete plat */
+/* delete plat */
 
     public function delete(int $platId): bool
     {
@@ -132,7 +130,7 @@ class PlatRepository extends AbstractRepository
         }
     }
 
-    /* Récupère categories */
+/* Récup categories */
 
     public function findAllCategories(): array
     {
@@ -140,7 +138,7 @@ class PlatRepository extends AbstractRepository
         return $stmt->fetchAll();
     }
 
-   /* Récupère tous les allergènes */
+/* Récup allergènes */
 
 public function findAllAllergenes(): array
 {
@@ -153,7 +151,7 @@ public function findAllAllergenes(): array
         throw new \RuntimeException('Erreur lors de la récupération des allergènes.');
     }
 }
-    /* rempli les cases allergens */
+
 
 public function findAllergeneIdsByMenuId(int $menuId): array
 {
@@ -172,7 +170,7 @@ public function findAllergeneIdsByMenuId(int $menuId): array
     }
 }
 
-    /* MAJ allergenes admin */
+/* MAJ allergenes admin */
     
     public function syncAllergenes(int $platId, array $allergeneIds): void
     {

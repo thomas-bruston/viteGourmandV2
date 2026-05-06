@@ -23,7 +23,7 @@ class RoleRepository extends AbstractRepository
         }
     }
 
-    /* rôle par ID */
+/* rôle par ID */
 
     public function findById(int $roleId): ?Role
     {
@@ -38,5 +38,3 @@ class RoleRepository extends AbstractRepository
         }
     }
 }
-
-/* Le contrôle d'accès par rôle est géré via la session PHP, les rôles sont fixes et gérés via AuthService */

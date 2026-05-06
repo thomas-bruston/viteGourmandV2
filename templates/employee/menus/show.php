@@ -43,7 +43,7 @@ ob_start();
     <h3 class="menu-titre">"<?= htmlspecialchars($menu->getTitre()) ?>"</h3>
     <p class="description"><?= htmlspecialchars($menu->getDescription()) ?></p>
 
-    <!-- PLATS -->
+<!-- PLATS -->
 
     <div id="cardsContainer">
         <?php foreach ($plats as $plat): ?>
@@ -146,7 +146,7 @@ ob_start();
                    accept="image/jpeg,image/png,image/webp">
         </div>
 
-        <!-- MODIF PLATS -->
+<!-- MODIF PLATS -->
 
         <div class="form-group">
             <label>Plats du menu</label>
@@ -178,7 +178,7 @@ ob_start();
                                    accept="image/jpeg,image/png,image/webp">
                         </div>
 
-                        <!-- BTN SUPPRIMER PLATS -->
+<!-- BTN SUPPRIMER PLATS -->
 
                         <form method="POST" action="/employe/plat/supprimer"
                               onsubmit="return confirm('Supprimer ce plat ?')">
@@ -197,8 +197,8 @@ ob_start();
             </div>
         </div>
 
-        <!-- ALLERGENES -->
-         
+<!-- ALLERGENES -->
+
         <div class="form-group">
             <fieldset>
                 <legend>Allergènes</legend>
@@ -234,6 +234,7 @@ ob_start();
 </div>
 
 <!-- FOOTER -->
+ 
 <footer class="detail-footer-admin">
     
 </footer>

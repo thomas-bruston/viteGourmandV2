@@ -15,6 +15,7 @@ ob_start();
 </div>
 
 <!-- MENU FILTRES -->
+ 
 <div class="filtres-menu" id="filtres-menu" aria-hidden="true">
 
     <div class="filtres-section">
@@ -71,6 +72,7 @@ ob_start();
 </div>
 
 <!-- RÉSULTATS -->
+
 <div id="cardsContainer" role="region" aria-live="polite" aria-label="Liste des menus">
     <?php require ROOT_PATH . '/templates/menus/cards.php'; ?>
 </div>

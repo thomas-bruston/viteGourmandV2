@@ -22,7 +22,7 @@ ob_start();
             <input type="hidden" name="csrf_token"
                    value="<?= htmlspecialchars($_SESSION['csrf_token'] ?? '') ?>">
 
-            <!-- INFOS MENU -->
+<!-- INFOS MENU -->
 
             <div class="form-group">
                 <label for="theme">Thème</label>
@@ -82,7 +82,8 @@ ob_start();
                     
             </div>
 
-            <!-- PLATS -->
+<!-- PLATS -->
+
             <h3 class="section-title">Plats du menu</h3>
 
             <?php for ($i = 0; $i < 3; $i++):
@@ -130,7 +131,8 @@ ob_start();
             </div>
             <?php endfor; ?>
 
-            <!-- ALLERGENES MENU -->
+<!-- ALLERGENES MENU -->
+ 
             <h3 class="section-title">Allergènes du menu</h3>
             <div class="form-group">
                 <fieldset>

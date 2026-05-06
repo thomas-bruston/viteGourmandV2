@@ -39,7 +39,7 @@ class EmployeController extends Controller
         ]);
     }
 
-    /* Liste commandes + filtres */
+/* Liste commandes + filtres */
 
     public function commandes(): void
     {
@@ -59,7 +59,7 @@ class EmployeController extends Controller
         ]);
     }
 
-    /* MAJ status + mail */
+/* MAJ statuts + mail */
      
     public function updateStatut(): void
     {
@@ -82,11 +82,11 @@ class EmployeController extends Controller
 
         $this->commandeRepository->updateStatut($commandeId, $statut, $commentaire ?: null);
 
-        // Mails automatiques selon le statut
+   
 
         $this->envoyerMailStatut($commande, $statut);
 
-      // Enregistrer dans MongoDB 
+/* Enregistrer dans MongoDB */ 
 
         if ($statut === Commande::STATUT_TERMINEE) {
             $menu = $this->menuRepository->findById($commande->getMenuId());
@@ -105,7 +105,7 @@ class EmployeController extends Controller
         $this->redirect('/employe/commandes');
     }
 
-    /* Annulation commande employé */
+/* Annulation commande employé */
 
     public function annuler(): void
     {
@@ -126,11 +126,11 @@ class EmployeController extends Controller
         $this->redirect('/employe/commandes');
     }
 
-    /* Envoie mails */
+/* Envoie mails */
 
     private function envoyerMailStatut(Commande $commande, string $nouveauStatut): void
     {
-        // Pour récupérer email + prénom du client
+        
         $utilisateur = (new \Repository\UtilisateurRepository())->findById($commande->getUtilisateurId());
 
         if ($utilisateur === null) return;

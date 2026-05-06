@@ -25,7 +25,7 @@ class PriceService
         return round($menu->getPrixParPersonne() * $nombrePersonnes, 2);
     }
 
-    /* Calcul frais livraison */
+/* Calcul frais livraison */
 
     public function calculerFraisLivraison(string $codePostal, float $distanceKm = 0): float
         {
@@ -38,7 +38,7 @@ class PriceService
             );
         }
 
-    /* Calcul prix total commande */
+/* Calcul prix total commande */
 
     public function calculerTotal(
         Menu   $menu,

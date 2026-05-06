@@ -23,7 +23,7 @@ class AvisController extends Controller
         $this->commandeRepository = new CommandeRepository();
     }
 
-    /*Formulaire avis */
+/* Formulaire avis */
 
     public function showForm(): void
 {
@@ -45,7 +45,7 @@ class AvisController extends Controller
     ]);
 }
 
-    /* Enregistrement avis */
+/* Enregistre avis */
 
     public function store(): void
     {
@@ -80,7 +80,7 @@ class AvisController extends Controller
         }
     }
 
-    /*Liste avis */
+/* Liste avis */
     
     public function adminIndex(): void
     {

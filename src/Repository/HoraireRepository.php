@@ -10,7 +10,8 @@ use PDOException;
 
 class HoraireRepository extends AbstractRepository
 {
-    /* Get Horaire */
+
+/* Get Horaire */
 
     public function get(): ?Horaire
     {
@@ -24,18 +25,16 @@ class HoraireRepository extends AbstractRepository
         }
     }
 
-    /**
-     * Récupère uniquement le texte (compatibilité avec le footer) necessaire ???
-     */
+    /* Récupère texte */
+
     public function getTexte(): string
     {
         $horaire = $this->get();
         return $horaire ? $horaire->getTexte() : '';
     }
 
-    /**
-     * Met à jour le texte des horaires
-     */
+    /* MAJ texte */
+    
     public function updateTexte(string $texte): bool
     {
         try {

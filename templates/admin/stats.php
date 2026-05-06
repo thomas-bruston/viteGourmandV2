@@ -10,7 +10,8 @@ ob_start();
 
 <div class="container">
 
-    <!-- TABLEAU -->
+<!-- TABLEAU -->
+
     <div class="table-section">
         <table>
             <caption class="table-caption">TABLEAU DES COMMANDES PAR MENU</caption>
@@ -42,7 +43,8 @@ ob_start();
         </table>
     </div>
 
-    <!-- GRAPHIQUE -->
+<!-- GRAPHIQUE -->
+ 
     <div class="chart-section">
         <div class="chart-title">GRAPHIQUE DES COMMANDES</div>
         <div style="height: 400px;">

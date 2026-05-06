@@ -6,6 +6,7 @@ ob_start();
 ?>
 
 <!-- BARRE INFO MENU -->
+
 <div class="secondMenu" role="complementary" aria-label="Informations rapides du menu">
     <p>Régime : <?= htmlspecialchars(implode(', ', $menu->getRegimes()) ?: 'Classique') ?></p>
     <p>
@@ -27,6 +28,7 @@ ob_start();
     </p>
 
 <!-- MENU ALLERGÈNES -->
+
 <?php if (!empty($allergenes)): ?>
     <div class="allergie-menu" id="allergieMenu" aria-hidden="true">
         <div class="allergie-header">
@@ -43,6 +45,7 @@ ob_start();
 <?php endif; ?>
 
 <!-- TITRE MENU -->
+
 <div class="theme">
     <p class="titre"><?= htmlspecialchars(implode(', ', $menu->getThemes())) ?></p>
 </div>
@@ -51,6 +54,7 @@ ob_start();
 <p class="description"><?= htmlspecialchars($menu->getDescription() ?? '') ?></p>
 
 <!-- PLATS -->
+ 
 <?php if (!empty($plats)): ?>
     <div id="cardsContainer">
         <?php foreach ($plats as $plat): ?>

@@ -21,16 +21,6 @@ ob_start();
             <h1 id="titre-avis">LAISSER UN AVIS</h1>
         </div>
 
-        <!-- Info commande -->
-        <?php if (!empty($commande)): ?>
-            <div class="avis-commande-info">
-                <p>
-                    Vous laissez un avis pour le menu
-                    <strong><?= htmlspecialchars($commande['menu_titre'] ?? '') ?></strong>
-                    du <?= htmlspecialchars(date('d/m/Y', strtotime($commande['date_prestation']))) ?>.
-                </p>
-            </div>
-        <?php endif; ?>
 
         <div class="prevention">
             <p>Dans le cadre de notre politique de respect, nous vous demandons de rester
@@ -58,7 +48,8 @@ ob_start();
     <input type="hidden" name="note" id="note-value" value="<?= $old['note'] ?? 5 ?>">
 </div>
 
-        <!-- Commentaire -->
+<!-- COMMENTAIRE -->
+ 
         <div>
             <label for="description">Votre commentaire <span aria-hidden="true">*</span></label>
             <textarea id="description" name="description"

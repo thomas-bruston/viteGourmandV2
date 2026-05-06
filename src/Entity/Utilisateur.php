@@ -47,7 +47,7 @@ class Utilisateur
         $this->dateCreation  = $dateCreation;
     }
 
-    /* Getters */
+/* Getters */
 
     public function getUtilisateurId(): ?int    { return $this->utilisateurId; }
     public function getRoleId(): int            { return $this->roleId; }
@@ -67,7 +67,7 @@ class Utilisateur
         return $this->prenom . ' ' . $this->nom;
     }
 
-    /* Setters */
+/* Setters */
 
     public function setUtilisateurId(?int $id): void
     {
@@ -151,7 +151,8 @@ class Utilisateur
         $this->statut = $statut;
     }
 
-    /* Construct user */
+/* Construct user */
+
     public static function fromArray(array $data): static
     {
         return new static(

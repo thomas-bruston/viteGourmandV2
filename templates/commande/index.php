@@ -22,11 +22,13 @@ ob_start();
             $peutModifier = $commande->estModifiable();
         ?>
 
-            <!-- OVERLAY SUIVI -->
+<!-- OVERLAY SUIVI -->
+
             <div class="overlay" id="overlay-<?= (int)$commande->getCommandeId() ?>"
                  aria-hidden="true"></div>
 
-            <!-- PANNEAU SUIVI -->
+<!-- PANNEAU SUIVI -->
+
             <nav class="follow-menu"
                  id="followMenu-<?= (int)$commande->getCommandeId() ?>"
                  aria-label="Suivi de la commande <?= htmlspecialchars($commande->getNumeroCommande()) ?>"
@@ -38,7 +40,7 @@ ob_start();
                 </div>
             </nav>
 
-            <!-- COMMANDE -->
+<!-- COMMANDE -->
             
             <div class="commande-block">
 
@@ -131,7 +133,8 @@ ob_start();
                                     readonly aria-readonly="true">
                             </div>
 
-                            <!-- ACTIONS -->
+<!-- BTN MODIF + ANNULATION + SUIVI -->
+ 
                             <div class="button-container">
                                 <?php if ($peutModifier): ?>
                                     <button type="submit" class="btn btn-modify"

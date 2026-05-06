@@ -99,7 +99,7 @@ class Session
         }
     }
 
-    /* ID session */
+/* ID session */
 
     public static function regenerate(): void
     {
@@ -115,7 +115,7 @@ class Session
 }
 
 
-   /* Gestion tokens CSRF */
+/* Gestion tokens CSRF */
 
    public static function generateCsrfToken(): string
 {
@@ -125,7 +125,7 @@ class Session
     return $_SESSION['csrf_token'];
 }
 
-    /* valid CSRF */
+/* valid CSRF */
 
     public static function verifyCsrfToken(string $token): bool
     {
@@ -136,7 +136,7 @@ class Session
         return hash_equals($_SESSION['csrf_token'], $token);
     }
 
-    /* Vérif user connect */
+/* Vérif user connect */
 
     public static function isLoggedIn(): bool
     {
