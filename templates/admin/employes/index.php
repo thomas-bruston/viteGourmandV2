@@ -9,9 +9,6 @@ ob_start();
 </div>
 
 <div class="employee-list">
-    <?php if (empty($employes)): ?>
-        <p class="text-center py-4">Aucun employé.</p>
-    <?php else: ?>
         <?php foreach ($employes as $emp): ?>
             <div class="employee-item">
                 <span class="employee-name">
@@ -36,7 +33,6 @@ ob_start();
                 </form>
             </div>
         <?php endforeach; ?>
-    <?php endif; ?>
 </div>
 
 <div class="add-container">

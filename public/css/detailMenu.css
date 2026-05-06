@@ -1,14 +1,4 @@
-    * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            background-color: #f5f5f5;     
-        }
-        
 /* TOP MENU */
 
         .secondMenu {
@@ -150,6 +140,7 @@
         h3{
             text-align: center;
             margin-top: 20px;
+            font-family: var(--font-lucida);
         }
 
         h4,p{
@@ -199,7 +190,7 @@
             text-align: center;
         }
 
-        .image-container img {
+        .card.image-container img {
             width: 328px;
             height: 272px;
             object-fit: cover;

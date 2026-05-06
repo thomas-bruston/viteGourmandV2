@@ -37,7 +37,7 @@ class AdminController extends Controller
 
         $this->render('admin/dashboard', [
             'employes' => $employes,
-            'success'  => Session::getFlash('success'),
+            
         ]);
     }
 
@@ -47,8 +47,7 @@ class AdminController extends Controller
 
         $this->render('admin/employes/index', [
             'employes' => $employes,
-            'success'  => Session::getFlash('success'),
-            'error'    => Session::getFlash('error'),
+            
         ]);
     }
 
@@ -56,7 +55,7 @@ class AdminController extends Controller
     {
         $this->render('admin/employes/create', [
             'csrf_token' => Session::generateCsrfToken(),
-            'error'      => Session::getFlash('error'),
+            
         ]);
     }
 

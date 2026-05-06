@@ -1,15 +1,4 @@
-    * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            background-color: #f5f5f5;
-           
-            
-        }
        
 /* TOP MENU */
 
@@ -127,11 +116,10 @@
         }
 
         .theme{
-            
             display: flex;
             justify-content: center;
-        
         }
+
         .titre{
             background: #ff9a9e;
             color: #8b4049;
@@ -179,7 +167,7 @@
             background: white;
             border-radius: 12px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-            overflow: hidden;
+            
             border: 1px solid #f3eaea;
         }
 
@@ -192,10 +180,11 @@
             text-align: center;
         }
 
-        .image-container img {
+        .card.image-container img {
             width: 328px;
             height: 272px;
             object-fit: cover;
+            overflow: hidden;
             display: block;
         }
 
@@ -278,6 +267,7 @@
             color: #333;
             margin-bottom: 30px;
             font-size: 1rem;
+            font-family: var(--font-lucida);
         }
 
         .form-group {
@@ -290,6 +280,7 @@
             color: #333;
             font-weight: bold;
             font-size: 0.95rem;
+            font-family: var(--font-lucida);
         }
 
         .form-group input[type="text"],
@@ -301,7 +292,7 @@
             border: 2px solid #e0e0e0;
             border-radius: 8px;
             font-size: 1rem;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-family: var(--font-lucida);
             transition: border-color 0.3s;
         }
 
@@ -320,6 +311,7 @@
         .form-row .form-group {
             flex: 1;
         }
+
 
         .allergenes-checkboxes {
             display: grid;
@@ -352,6 +344,7 @@
         }
         .section-title{
             padding-bottom: 20px;
+            
         }
 
         .btn-cancel-edit {

@@ -33,8 +33,7 @@ class AuthController extends Controller
 
         $this->render('auth/login', [
             'csrf_token' => Session::generateCsrfToken(),
-            'error'      => Session::getFlash('error'),
-            'success'    => Session::getFlash('success'),
+            
         ]);
     }
 
@@ -86,7 +85,7 @@ class AuthController extends Controller
 
         $this->render('auth/register', [
             'csrf_token' => Session::generateCsrfToken(),
-            'error'      => Session::getFlash('error'),
+          
         ]);
     }
 
@@ -125,8 +124,7 @@ class AuthController extends Controller
     {
         $this->render('auth/forgot', [
             'csrf_token' => Session::generateCsrfToken(),
-            'error'      => Session::getFlash('error'),
-            'success'    => Session::getFlash('success'),
+           
         ]);
     }
 
@@ -174,7 +172,7 @@ class AuthController extends Controller
         $this->render('auth/reset', [
             'csrf_token' => Session::generateCsrfToken(),
             'token'      => htmlspecialchars($token),
-            'error'      => Session::getFlash('error'),
+            
         ]);
     }
 

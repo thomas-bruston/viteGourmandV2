@@ -12,11 +12,6 @@ ob_start();
     <table>
         <caption>Tableau des avis utilisateurs</caption>
         <tbody>
-            <?php if (empty($avis)): ?>
-                <tr>
-                    <td colspan="5" class="text-center py-4">Aucun avis.</td>
-                </tr>
-            <?php else: ?>
                 <?php foreach ($avis as $a): ?>
                     <tr>
                         <th scope="row">
@@ -60,7 +55,6 @@ ob_start();
                         </td>
                     </tr>
                 <?php endforeach; ?>
-            <?php endif; ?>
         </tbody>
     </table>
 </div>

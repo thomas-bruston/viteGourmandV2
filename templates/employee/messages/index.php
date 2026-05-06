@@ -13,11 +13,7 @@ ob_start();
         <caption class="caption">Tableau des messages</caption>
         
         <tbody>
-            <?php if (empty($messages)): ?>
-                <tr>
-                    <td colspan="5" class="text-center py-4">Aucun message.</td>
-                </tr>
-            <?php else: ?>
+            
                 <?php foreach ($messages as $m): ?>
                     <tr class="tableContent">
                         <th scope="row" class="tableContentItem">
@@ -50,7 +46,6 @@ ob_start();
                         </td>
                     </tr>
                 <?php endforeach; ?>
-            <?php endif; ?>
         </tbody>
     </table>
 </div>

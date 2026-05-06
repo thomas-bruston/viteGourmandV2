@@ -40,7 +40,6 @@ class AvisController extends Controller
     $this->render('user/avis-form', [
         'csrf_token' => Session::generateCsrfToken(),
         'commande'   => $commande,
-        'error'      => Session::getFlash('error'),
         'old'        => [],
         'errors'     => [],
     ]);
@@ -89,7 +88,7 @@ class AvisController extends Controller
 
         $this->render('employee/avis/index', [
             'avis'    => $avis,
-            'success' => Session::getFlash('success'),
+            
         ]);
     }
 

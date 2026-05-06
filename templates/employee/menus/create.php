@@ -9,7 +9,7 @@ ob_start();
         <h2>Créer un menu</h2>
 
         <?php if (!empty($error)): ?>
-            <div class="error-message" role="alert">
+            <div class="flash flash--error" role="alert">
                 <?= htmlspecialchars($error) ?>
             </div>
         <?php endif; ?>
