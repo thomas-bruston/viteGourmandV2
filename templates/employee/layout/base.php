@@ -17,6 +17,7 @@
 <body>
 
     <!-- HEADER ADMIN + EMPLOYÉ -->
+
     <div class="admin-header">
         <?php if (($_SESSION['user']['role'] ?? '') === 'administrateur'): ?>
             <h1>Bienvenue dans l'espace administrateur</h1>
@@ -35,7 +36,8 @@
         <?php endif; ?>
     </div>
 
-    <!-- Flash message -->
+    <!-- FLASH MESSAGE -->
+
     <?php if (!empty($_SESSION['flash'])): ?>
         <div class="flash flash--<?= htmlspecialchars($_SESSION['flash']['type']) ?>"
              id="flashMsg" role="alert" aria-live="polite">
@@ -50,7 +52,8 @@
         </script>
     <?php endif; ?>
 
-    <!-- Contenu -->
+    <!-- CONTENU -->
+
     <?= $content ?>
 
     <?php if (!empty($pageJs)): ?>

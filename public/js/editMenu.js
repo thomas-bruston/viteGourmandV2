@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const overlay = document.getElementById('overlay');
     const contentView = document.getElementById('contentView');
     
-    // FORMULAIRE MODFICATION
+/* FORMULAIRE MODFICATION */
 
     if (btnModifier) {
         btnModifier.addEventListener('click', function() {
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // ANNULER MODIF
+/* ANNULER MODIF */
 
     if (cancelEdit) {
         cancelEdit.addEventListener('click', function() {
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // OVERLAY
+/* OVERLAY */
     
     if (overlay) {
         overlay.addEventListener('click', function() {

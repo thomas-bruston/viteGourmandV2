@@ -39,7 +39,7 @@ class Avis
         $this->dateAvis      = $dateAvis;
     }
 
-    /* Getters */
+/* Getters */
 
     public function getAvisId(): ?int           { return $this->avisId; }
     public function getUtilisateurId(): int     { return $this->utilisateurId; }
@@ -51,7 +51,7 @@ class Avis
     public function getUtilisateurNom(): string { return $this->utilisateurNom; }
     public function getUtilisateurPrenom(): string { return $this->utilisateurPrenom; }
 
-    /* Setters */
+/* Setters */
 
     public function setAvisId(?int $id): void { $this->avisId = $id; }
 

@@ -29,7 +29,7 @@ class HoraireController extends Controller
         Session::setFlash('success', 'Horaires mis à jour.');
     }
 
-    // Redirection selon le rôle
+   
     $role = Session::getUserRole();
     if ($role === 'administrateur') {
         $this->redirect('/admin');

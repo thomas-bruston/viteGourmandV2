@@ -9,10 +9,8 @@ use PDOException;
 
 class ContactRepository extends AbstractRepository
 {
-    /**
-     * Récupère tous les messages de contact
-     * @return Contact[]
-     */
+/* Récup messages */
+
     public function findAll(): array
     {
         try {
@@ -28,7 +26,7 @@ class ContactRepository extends AbstractRepository
         }
     }
 
-    /*Create message */
+/*Create message */
 
     public function create(Contact $contact): int
     {
@@ -53,7 +51,8 @@ class ContactRepository extends AbstractRepository
         }
     }
 
-    /*Delete message */
+/*Delete message */
+
     public function delete(int $contactId): bool
     {
         try {

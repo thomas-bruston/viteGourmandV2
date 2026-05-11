@@ -9,10 +9,8 @@ use PDOException;
 
 class MenuRepository extends AbstractRepository
 {
-    /**
-     * Récupère tous les menus actifs avec leurs thèmes et régimes
-     * @return Menu[]
-     */
+    /* Récup menus + theme + regime  */
+
     public function findAll(): array
     {
         try {
@@ -45,7 +43,7 @@ class MenuRepository extends AbstractRepository
         }
     }
 
-    /* Récup menu par ID + plats + allergenes */
+/* Récup menu par ID + plats + allergenes */
 
     public function findById(int $menuId): ?Menu
     {
@@ -141,9 +139,8 @@ class MenuRepository extends AbstractRepository
         }
     }
 
-    /**
-     * Create menu necessaire 
-     */
+    /* Create menu */
+
     public function create(Menu $menu): int
     {
         try {
@@ -168,7 +165,7 @@ class MenuRepository extends AbstractRepository
         }
     }
 
-    /* MAJ menu */
+/* MAJ menu */
 
     public function update(Menu $menu): bool
     {
@@ -196,7 +193,7 @@ class MenuRepository extends AbstractRepository
         }
     }
 
-    /* Supprime menu */
+/* Supprime menu */
 
     public function delete(int $menuId): bool
     {
@@ -212,7 +209,7 @@ class MenuRepository extends AbstractRepository
         }
     }
 
-    /* MAJ theme */
+/* MAJ theme */
 
     public function syncThemes(int $menuId, array $themeIds): void
     {
@@ -233,7 +230,7 @@ class MenuRepository extends AbstractRepository
         }
     }
 
-    /* MAJ regime */
+/* MAJ regime */
     
     public function syncRegimes(int $menuId, array $regimeIds): void
     {
@@ -254,7 +251,7 @@ class MenuRepository extends AbstractRepository
         }
     }
 
-/* Récupère themes */
+/* Récup themes */
 
 public function findAllThemes(): array
 {
@@ -268,7 +265,7 @@ public function findAllThemes(): array
     }
 }
 
-/* Récupère regime */
+/* Récup regime */
 
 public function findAllRegimes(): array
 {
@@ -307,23 +304,12 @@ public function decrementerQuantite(int $menuId, int $nombrePersonnes): void
             'UPDATE menu
              SET quantite_restante = quantite_restante - :nb
              WHERE menu_id = :id
-               AND quantite_restante >= :nb_check'
+             AND quantite_restante >= :nb'
         );
-
         $stmt->execute([
-            ':nb'       => $nombrePersonnes,
-            ':id'       => $menuId,
-            ':nb_check' => $nombrePersonnes,  // ← paramètre distinct, même valeur
+            ':nb' => $nombrePersonnes,
+            ':id' => $menuId,
         ]);
-
-        // Vérification atomique : si 0 ligne affectée = stock épuisé (race condition)
-        if ($stmt->rowCount() === 0) {
-            throw new \RuntimeException(
-                'Stock insuffisant pour le menu #' . $menuId .
-                ' (race condition détectée ou quantité insuffisante).'
-            );
-        }
-
     } catch (\PDOException $e) {
         error_log('[MenuRepository::decrementerQuantite] ' . $e->getMessage());
         throw new \RuntimeException('Erreur lors de la mise à jour des quantités.');

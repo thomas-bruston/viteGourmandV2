@@ -9,7 +9,8 @@
     const prixMax      = document.getElementById('prix-max');
     const prixLabel    = document.getElementById('prix-max-label');
 
-    // État des filtres actifs
+/* ETAT FILTRES ACTIFS */
+
     const activeFilters = {
         theme:     null,
         regime:    null,
@@ -17,7 +18,8 @@
         prix_max:  100
     };
 
-    // Ouvrir / fermer le panneau filtres
+/* OUVRIR + FERMER PANNEAU FILTRES */
+
  filterButton.addEventListener('click', () => {
     console.log('bouton cliqué');
     const isOpen = filtresMenu.getAttribute('aria-hidden') === 'false';
@@ -27,19 +29,19 @@
     filtresMenu.classList.toggle('open', !isOpen);
 });
 
-    // Boutons filtres (toggle actif)
+/* BTN FILTRE TOGGLE ACIF */
+
     document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const filter = btn.dataset.filter;
             const value  = btn.dataset.value;
 
-            // Désactiver les autres boutons du même filtre
+            
             document.querySelectorAll(`.filter-btn[data-filter="${filter}"]`).forEach(b => {
                 b.classList.remove('active');
                 b.setAttribute('aria-pressed', 'false');
             });
 
-            // Toggle ce bouton
             if (activeFilters[filter] === value) {
                 activeFilters[filter] = null;
                 btn.setAttribute('aria-pressed', 'false');
@@ -51,22 +53,27 @@
         });
     });
 
-    // Slider prix
+/* SLIDER PRIX */
+
     prixMax.addEventListener('input', () => {
         activeFilters.prix_max = prixMax.value;
         prixLabel.textContent  = prixMax.value;
     });
 
-    // Valider → appel AJAX
+/* VALIDER + REQUETE */
+
     validerBtn.addEventListener('click', () => {
         fetchMenus();
-        // Fermer le panneau
+
+/* FERMER PANNEAU */
+
         filtresMenu.setAttribute('aria-hidden', 'true');
         filterButton.setAttribute('aria-expanded', 'false');
         filtresMenu.classList.remove('open');
     });
 
-    // Réinitialiser
+/* RENINIT */
+
     resetBtn.addEventListener('click', () => {
         activeFilters.theme     = null;
         activeFilters.regime    = null;
@@ -81,7 +88,8 @@
         fetchMenus();
     });
 
-    // Requête AJAX
+/* REQUETE AJAX */
+
     function fetchMenus() {
         const params = new URLSearchParams();
         if (activeFilters.theme)     params.append('theme',     activeFilters.theme);

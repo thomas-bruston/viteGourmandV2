@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (!stars.length || !noteInput) return;
 
-    // Initialiser avec la valeur par défaut
+/* INIT VALEUR DEFAUT */
+
     highlightStars(noteInput.value);
 
     stars.forEach(star => {

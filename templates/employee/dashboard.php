@@ -19,12 +19,14 @@ ob_start();
      Messages
     </a>
 
-    <!-- Horaires -->
+<!-- HORAIRES -->
+
     <button class="menu-btn" id="timeBtn"
             aria-expanded="false"
             aria-controls="timeMenu">
         Gestion des horaires
     </button>
+    
 
     <a href="/deconnexion" class="menu-btn">
          Déconnexion
@@ -33,6 +35,7 @@ ob_start();
 </div>
 
 <!-- PANNEAU HORAIRES -->
+
 <nav class="time-menu" id="timeMenu" aria-hidden="true" aria-label="Modifier les horaires">
     <h2>HORAIRES</h2>
     <form method="POST" action="/employe/horaires" novalidate>

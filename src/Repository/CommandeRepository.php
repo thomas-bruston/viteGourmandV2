@@ -10,10 +10,9 @@ use PDOException;
 
 class CommandeRepository extends AbstractRepository
 {
-    /**
-     * Récupère toutes les commandes d'un utilisateur
-     * @return Commande[]
-     */
+
+/* Récupère commandes d'un user */
+
     public function findByUtilisateurId(int $utilisateurId): array
     {
         try {
@@ -35,7 +34,7 @@ class CommandeRepository extends AbstractRepository
         }
     }
 
-    /* Récupère commande par ID */
+/* Récupère commande par ID */
 
     public function findById(int $commandeId): ?Commande
     {
@@ -61,10 +60,8 @@ class CommandeRepository extends AbstractRepository
         }
     }
 
-    /**
-     * Récupère toutes les commandes (espace employé) avec filtres optionnels
-     * @return Commande[]
-     */
+    /* Récupère les commandes pour employé */
+
    public function findAll(array $filters = []): array
 {
     try {
@@ -106,7 +103,7 @@ class CommandeRepository extends AbstractRepository
     }
 }
 
-    /* Create commande */
+/* Create commande */
 
     public function create(Commande $commande): int
     {
@@ -144,7 +141,7 @@ class CommandeRepository extends AbstractRepository
         }
     }
 
-    /* MAJ statut commande */
+/* MAJ statut commande */
 
     public function updateStatut(int $commandeId, string $statut, ?string $commentaire = null): bool
 {
@@ -172,7 +169,7 @@ class CommandeRepository extends AbstractRepository
     }
 }
 
-    /* Annulation commande */
+/* Annulation commande */
 
     public function annuler(int $commandeId, string $motif,): bool
     {
@@ -210,7 +207,7 @@ class CommandeRepository extends AbstractRepository
         }
     }
 
-    /* Modif commande */
+/* Modif commande */
 
     public function modifier(int $commandeId, string $datePrestation, string $heureLivraison): bool
     {
@@ -233,7 +230,7 @@ class CommandeRepository extends AbstractRepository
         }
     }
 
-    /* create numero commande */
+/* create numero commande */
     
    public function generateNumeroCommande(): string
 {
@@ -245,7 +242,6 @@ class CommandeRepository extends AbstractRepository
         $stmt->execute([':year' => $year]);
         $count = (int) $stmt->fetchColumn();
 
-        // Chercher le prochain numéro disponible
         do {
             $count++;
             $numero = 'VG-' . $year . str_pad((string) $count, 4, '0', STR_PAD_LEFT);

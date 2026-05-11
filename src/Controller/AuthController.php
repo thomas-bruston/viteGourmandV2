@@ -1,5 +1,5 @@
 <?php
-// Feature : authentification — inscription, connexion, logout, reset mot de passe
+// Feat : authentification, inscription, connexion, logout, reset MDP
 
 declare(strict_types=1);
 
@@ -23,7 +23,7 @@ class AuthController extends Controller
         $this->mailService = new MailService();
     }
 
-    // Connexion
+    /* Connexion */
 
     public function showLogin(): void
     {
@@ -54,7 +54,8 @@ class AuthController extends Controller
 
             Session::setFlash('success', 'Bienvenue ' . htmlspecialchars($utilisateur->getPrenom()) . ' !');
 
-            // Redirection selon le rôle
+            /* Redirection selon le rôle */
+
             $role = Session::getUserRole();
             $redirect = Session::get('redirect_after_login');
             Session::remove('redirect_after_login');
@@ -75,7 +76,7 @@ class AuthController extends Controller
         }
     }
 
-    // Inscription
+    /* Inscription */
 
     public function showRegister(): void
     {
@@ -110,7 +111,7 @@ class AuthController extends Controller
     }
 }
 
-    // Déconnexion
+    /* Déconnexion */
 
     public function logout(): void
     {
@@ -118,7 +119,7 @@ class AuthController extends Controller
         $this->redirect('/connexion');
     }
 
-    // Mot de passe oublié
+    /* MDP oublié */
 
     public function showForgot(): void
     {
@@ -143,12 +144,14 @@ class AuthController extends Controller
             $token = $this->authService->generateResetToken($email);
 
             if ($token !== null) {
-                // Récupérer le prénom pour personnaliser le mail
+
+                /* Récup prénom personnaliser mail */
+
                 $utilisateur = (new \Repository\UtilisateurRepository())->findByEmail($email);
                 $this->mailService->sendResetPassword($email, $utilisateur->getPrenom(), $token);
             }
 
-            // Mail base
+            /* Mail base */
             
             Session::setFlash('success', 'Si un compte existe avec cet email, un lien de réinitialisation vous a été envoyé.');
             $this->redirect('/mot-de-passe-oublie');
@@ -159,7 +162,7 @@ class AuthController extends Controller
         }
     }
 
-    // Réinitialisation du mot de passe
+    /* Réinit MDP */
 
     public function showReset(): void
     {

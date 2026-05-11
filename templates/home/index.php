@@ -5,13 +5,15 @@ $pageCss = 'index.css';
 ob_start();
 ?>
 
-<!-- Hero -->
+<!-- HERO -->
+
 <div class="image-container">
     <img src="/images/ban.png" alt="Présentation d'un plat Vite et Gourmand">
     <div class="text-main">Vite et Gourmand</div>
 </div>
 
-<!-- Présentation -->
+<!-- PRESENTATION -->
+
 <section aria-labelledby="titre-presentation">
     <div class="text-container">
         
@@ -25,7 +27,8 @@ ob_start();
     </div>
 </section>
 
-<!-- Cards -->
+<!-- CARDS -->
+
 <div class="card-container">
 
     <div class="card">
@@ -43,7 +46,8 @@ ob_start();
         </div>
     </div>
 
-    <!-- Avis clients -->
+<!-- AVIS -->
+ 
     <div class="card">
         <img src="/images/avis.png" alt="Plat présenté par Vite et Gourmand">
         <div class="card-text-avis" aria-label="Avis de nos clients">

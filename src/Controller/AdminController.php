@@ -1,5 +1,5 @@
 <?php
-// Feature : espace admin — gestion employés, statistiques MongoDB
+// Feat : espace admin, gestion employés, stat MongoDB
 
 declare(strict_types=1);
 
@@ -78,7 +78,7 @@ class AdminController extends Controller
                 throw new \RuntimeException('Cet email est déjà utilisé.');
             }
 
-            // Valid MDP
+            /* Valid MDP */
 
             $this->authService->validatePassword($password);
 
@@ -98,7 +98,7 @@ class AdminController extends Controller
 
             $this->utilisateurRepository->create($employe);
 
-            // Mail notif emploté
+            /* Mail notif emploté */
     
             $this->mailService->sendCreationCompteEmploye($email, $prenom);
 
@@ -111,9 +111,8 @@ class AdminController extends Controller
         }
     }
 
-    /**
-     * Désactive un compte employé
-     */
+    /* Désactive compte employé */
+
     public function desactiver(): void
     {
         $this->verifyCsrf();
@@ -133,7 +132,7 @@ class AdminController extends Controller
     $commandesParMenu = $this->mongoService->getNombreCommandesParMenu();
     $caParMenu        = $this->mongoService->getCAParMenu($dateDebut, $dateFin);
 
-    // commanbdes + CA
+    /* commandes + CA */
     
     $statsParMenu = [];
     foreach ($commandesParMenu as $cmd) {

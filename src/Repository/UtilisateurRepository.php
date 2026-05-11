@@ -53,7 +53,7 @@ class UtilisateurRepository extends AbstractRepository
         }
     }
 
-    /* Vérif mail existe deja */
+/* Vérif mail existe deja */
 
     public function emailExists(string $email): bool
     {
@@ -70,7 +70,7 @@ class UtilisateurRepository extends AbstractRepository
         }
     }
 
-   /* Create user */
+/* Create user */
 
     public function create(Utilisateur $utilisateur): int
     {
@@ -101,7 +101,7 @@ class UtilisateurRepository extends AbstractRepository
         }
     }
 
-    /* MAJ info user */
+/* MAJ info user */
 
     public function update(Utilisateur $utilisateur): bool
     {
@@ -128,7 +128,7 @@ class UtilisateurRepository extends AbstractRepository
         }
     }
 
-    /* MAJ MDP */
+/* MAJ MDP */
 
     public function updatePassword(int $utilisateurId, string $hash): bool
     {
@@ -144,10 +144,8 @@ class UtilisateurRepository extends AbstractRepository
         }
     }
 
-    /**
-     * Récupère tous les employés (pour l'admin)
-     * @return Utilisateur[]
-     */
+    /* Récup employés pour admin */
+
     public function findAllEmployes(): array
 {
     try {
@@ -170,9 +168,8 @@ class UtilisateurRepository extends AbstractRepository
     }
 }
 
-    /**
-     * Active ou désactive un utilisateur necessaire ????
-     */
+    /* Active ou désactive user */
+
     public function setStatut(int $utilisateurId, bool $statut): bool
     {
         try {
@@ -187,7 +184,7 @@ class UtilisateurRepository extends AbstractRepository
         }
     }
 
-    /* Token reinit MDP */
+/* Token reinit MDP */
 
     public function saveResetToken(int $utilisateurId, string $token, \DateTime $expireAt): bool
     {
@@ -214,9 +211,8 @@ class UtilisateurRepository extends AbstractRepository
         }
     }
 
-    /**
-     * Trouve un utilisateur via son token de reset (valide et non utilisé) necessaire ???
-     */
+/* Trouve user avec reset token */
+
     public function findByResetToken(string $token): ?Utilisateur
     {
         try {
@@ -240,7 +236,7 @@ class UtilisateurRepository extends AbstractRepository
         }
     }
 
-    /* Invalide used token */
+/* Invalide used token */
     
     public function invalidateResetToken(string $token): bool
     {

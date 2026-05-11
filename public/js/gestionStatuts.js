@@ -13,7 +13,8 @@
     let currentCommandeId = null;
     let selectedStatus    = null;
 
-    // Ouvrir le panneau statuts au clic sur un badge
+/* OPEN PANNEAU STATUTS */
+
     statusBadges.forEach(badge => {
         badge.addEventListener('click', function (e) {
             e.stopPropagation();
@@ -26,7 +27,8 @@
         });
     });
 
-    // Fermer via l'overlay
+/* CLOSE AVEC OVERLAY */
+
     overlay.addEventListener('click', () => {
         if (rightCard) rightCard.classList.remove('open');
         overlay.classList.remove('visible');
@@ -35,7 +37,8 @@
         selectedStatus    = null;
     });
 
-    // Clic sur un statut
+/* CLIC STATUT */
+
     statusItems.forEach(item => {
         item.addEventListener('click', function (e) {
             e.preventDefault();
@@ -48,7 +51,8 @@
         });
     });
 
-    // Envoyer le motif d'annulation
+/* ENVOI MOTIF ANNULATION */
+
     if (btnEnvoyer) {
         btnEnvoyer.addEventListener('click', () => {
             const motif = motifTextarea?.value.trim();
@@ -66,7 +70,8 @@
         });
     }
 
-    // Envoi POST vers la route MVC
+/* ENVOI NOUVEAU STATUT */
+
     function soumettreStatut(commandeId, statut, motif) {
         const formData = new FormData();
         formData.append('commande_id', commandeId);

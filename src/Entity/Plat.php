@@ -30,7 +30,7 @@ class Plat
         $this->image       = $image;
     }
 
-    /* Getters*/
+/* Getters*/
 
     public function getPlatId(): ?int           { return $this->platId; }
     public function getMenuId(): int            { return $this->menuId; }
@@ -40,7 +40,7 @@ class Plat
     public function getCategorieLibelle(): string { return $this->categorieLibelle; }
     public function getAllergenes(): array       { return $this->allergenes; }
 
-    /* Setters */
+/* Setters */
 
     public function setPlatId(?int $id): void         { $this->platId = $id; }
     public function setMenuId(int $id): void          { $this->menuId = $id; }

@@ -10,10 +10,9 @@ use PDOException;
 
 class AvisRepository extends AbstractRepository
 {
-    /**
-     * Récupère tous les avis validés (page d'accueil)
-     * @return Avis[]
-     */
+
+/* Récupère avis validés */
+
     public function findValides(): array
     {
         try {
@@ -35,10 +34,8 @@ class AvisRepository extends AbstractRepository
         }
     }
 
-    /**
-     * Récupère tous les avis (espace employé)
-     * @return Avis[]
-     */
+    /*  Récupère  avis */
+
     public function findAll(): array
     {
         try {
@@ -59,7 +56,7 @@ class AvisRepository extends AbstractRepository
         }
     }
 
-    /* Create avis */
+/* Create avis */
 
     public function create(Avis $avis): int
     {
@@ -83,7 +80,7 @@ class AvisRepository extends AbstractRepository
         }
     }
 
-    /* valider/refuser avis */
+/* valider ou refuser avis */
 
     public function updateStatut(int $avisId, string $statut): bool
     {
@@ -99,7 +96,7 @@ class AvisRepository extends AbstractRepository
         }
     }
 
-    /* Delete avis */
+/* Delete avis */
     
     public function delete(int $avisId): bool
     {

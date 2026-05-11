@@ -54,7 +54,7 @@ class ContactController extends Controller
         }
     }
 
-    /* Messages */
+/* Messages */
     
     public function adminIndex(): void
     {

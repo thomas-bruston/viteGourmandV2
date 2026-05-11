@@ -30,7 +30,7 @@ class MailService
         $this->encryption = Env::get('MAIL_ENCRYPTION', 'tls');
     }
 
-    /* envoi mail */
+/* envoi mail */
 
     private function send(string $to, string $subject, string $htmlBody): bool
     {
@@ -63,7 +63,8 @@ class MailService
             return false;
         }
     }
-    /* Mail bienvenue */
+
+/* Mail bienvenue */
 
     public function sendBienvenue(string $to, string $prenom): bool
     {
@@ -77,7 +78,7 @@ class MailService
         return $this->send($to, $subject, $body);
     }
 
-    /*Mail commande */
+/*Mail commande */
 
     public function sendConfirmationCommande(
         string $to,
@@ -103,7 +104,7 @@ class MailService
         return $this->send($to, $subject, $body);
     }
 
-    /* Mail avis */
+/* Mail avis */
 
     public function sendInvitationAvis(
         string $to,
@@ -122,7 +123,7 @@ class MailService
         return $this->send($to, $subject, $body);
     }
 
-    /* Mail retour matériel */
+/* Mail retour matériel */
 
     public function sendRetourMateriel(
         string $to,
@@ -143,7 +144,7 @@ class MailService
         return $this->send($to, $subject, $body);
     }
 
-    /* Mail reinit MDP */
+/* Mail reinit MDP */
 
     public function sendResetPassword(string $to, string $prenom, string $token): bool
     {
@@ -161,7 +162,7 @@ class MailService
         return $this->send($to, $subject, $body);
     }
 
-    /* Mail compte employé */
+/* Mail compte employé */
    
     public function sendCreationCompteEmploye(string $to, string $prenom): bool
     {
@@ -178,7 +179,7 @@ class MailService
         return $this->send($to, $subject, $body);
     }
 
-    // Template mail
+/* Template mail */
 
     private function layout(string $title, string $content): string
     {

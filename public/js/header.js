@@ -7,7 +7,8 @@
     const userMenu  = document.getElementById('userMenu');
     const overlay   = document.getElementById('overlay');
 
-    // Burger menu
+/* BURGER MENU */
+
     if (burgerBtn && sideMenu) {
         burgerBtn.addEventListener('click', () => {
             const isOpen = sideMenu.classList.toggle('open');
@@ -17,7 +18,8 @@
         });
     }
 
-    // User menu (absent si visiteur non connecté)
+/* USER MENU */
+
     if (userBtn && userMenu) {
         userBtn.addEventListener('click', () => {
             const isOpen = userMenu.classList.toggle('open');
@@ -27,7 +29,8 @@
         });
     }
 
-    // Overlay — ferme tout
+/* OVERLAY */
+
     if (overlay) {
         overlay.addEventListener('click', () => {
             if (sideMenu) {

@@ -1,5 +1,5 @@
 <header>
-    <!-- NAVBAR -->
+<!-- NAVBAR -->
     <div class="navbar">
         <!-- Burger -->
         <button class="burger" id="burgerBtn"
@@ -9,7 +9,7 @@
             <i class="fa-solid fa-bars" aria-hidden="true"></i>
         </button>
 
-        <!-- Liens gauche -->
+
         <div>
             <a href="/" class="header-btn">Accueil</a>
         </div>
@@ -17,14 +17,14 @@
             <a href="/menus" class="header-btn">Menus</a>
         </div>
 
-        <!-- Logo -->
+
         <div class="logo">
             
                 <img src="/images/logo.png" alt="Vite et Gourmand">
             </a>
         </div>
 
-        <!-- Liens droite -->
+
         <div>
             <a href="/contact" class="header-btn">Contact</a>
         </div>
@@ -55,6 +55,7 @@
 </nav>
 
 <!-- USER MENU -->
+
 <nav class="user-menu" id="userMenu" aria-label="Menu utilisateur" aria-hidden="true">
     <?php if (empty($_SESSION['user'])): ?>
         <a href="/connexion"><i class="fa-solid fa-user" aria-hidden="true"></i>Connexion</a>
@@ -74,6 +75,7 @@
 </nav>
 
 <!-- OVERLAY -->
+
 <div class="overlay" id="overlay" aria-hidden="true"></div>
 
 <script src="/js/header.js"></script>

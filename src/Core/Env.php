@@ -40,12 +40,8 @@ class Env
         }
     }
 
-    /**
-     * Récupère une variable d'environnement
-     * 
-     * @param string $key     Nom de la variable
-     * @param mixed  $default Valeur par défaut si absente
-     */
+    /* Récupère une variable d'environnement */
+    
     public static function get(string $key, mixed $default = null): mixed
     {
         return $_ENV[$key] ?? getenv($key) ?: $default;

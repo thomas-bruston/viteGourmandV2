@@ -40,7 +40,7 @@ class Menu
         $this->actif                 = $actif;
     }
 
-    /* Getters */
+/* Getters */
 
     public function getMenuId(): ?int               { return $this->menuId; }
     public function getTitre(): string              { return $this->titre; }
@@ -54,7 +54,7 @@ class Menu
     public function getRegimes(): array             { return $this->regimes; }
     public function getPlats(): array               { return $this->plats; }
 
-    /* Calcul prix total */
+ /* Calcul prix total */
 
     public function calculerPrixTotal(int $nombrePersonnes): float
     {
