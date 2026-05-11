@@ -36,7 +36,7 @@ ob_start();
                 <h2>SUIVI</h2>
                 <p>Votre commande est actuellement</p>
                 <div class="status-badge status-<?= htmlspecialchars(str_replace('_', '-', $commande->getStatut())) ?>">
-                    <p><?= htmlspecialchars(strtoupper($commande->getStatutLibelle())) ?></p>
+                    <p><?= htmlspecialchars(mb_strtoupper($commande->getStatutLibelle(), 'UTF-8')) ?></p>
                 </div>
             </nav>
 
