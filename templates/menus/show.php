@@ -39,7 +39,7 @@ ob_start();
                 <?php foreach ($allergenes as $allergene): ?>
                     <li><?= htmlspecialchars($allergene) ?></li>
                 <?php endforeach; ?>
-            </ol>
+            </ol>        
         </div>
     </div>
 <?php endif; ?>
@@ -54,7 +54,7 @@ ob_start();
 <p class="description"><?= htmlspecialchars($menu->getDescription() ?? '') ?></p>
 
 <!-- PLATS -->
- 
+
 <?php if (!empty($plats)): ?>
     <div id="cardsContainer">
         <?php foreach ($plats as $plat): ?>
@@ -82,7 +82,7 @@ ob_start();
 <footer class="detail-footer">
     <div class="footer-left">
         <div class="footer-message">
-            <p>Ce menu doit être commandé <strong>6 jours minimum</strong> avant la date de la prestation.</p>
+            <p>Ce menu doit être commandé &nbsp;<strong>6 jours minimum</strong>&nbsp; avant la date de la prestation.</p>
         </div>
         <div class="footer-info">
             <p>Tous nos plats sont fabriqués à base de produits frais.<br>

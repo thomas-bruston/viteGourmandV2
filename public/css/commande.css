@@ -1,5 +1,9 @@
+        * {
+            font-family: var(--font-lucida);
+        }
 
-        .main-content {
+    
+       .main-content {
             max-width: 1200px;
             margin: 0 auto;
             padding: 1.5rem 20px;
@@ -250,6 +254,7 @@
             border-radius: 30px;
             padding:8px 20px;  
             color: #fff;
+            ;
         }
 
         .status-acceptee {

@@ -173,14 +173,6 @@ ob_start();
             <span class="field-hint">Entre 09h00 et 20h00.</span>
         </div>
 
-        <div class="form-group-check">
-            <input type="checkbox" id="pret_materiel" name="pret_materiel" value="1">
-            <label for="pret_materiel">Souhaitez-vous du matériel (plats, équipements) ?</label>
-            <p class="field-hint">
-                Le matériel doit être restitué sous 10 jours ouvrés.
-                Des frais de 600€ s'appliquent en cas de non-restitution.
-            </p>
-        </div>
 
         <button type="submit" class="submit-btn">VALIDER MA COMMANDE</button>
         
