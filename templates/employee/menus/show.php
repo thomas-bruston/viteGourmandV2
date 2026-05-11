@@ -177,26 +177,10 @@ ob_start();
                                    name="plat_photos[<?= (int)$plat->getPlatId() ?>]"
                                    accept="image/jpeg,image/png,image/webp">
                         </div>
-
-<!-- BTN SUPPRIMER PLATS -->
-
-                        <form method="POST" action="/employe/plat/supprimer"
-                              onsubmit="return confirm('Supprimer ce plat ?')">
-                            <input type="hidden" name="csrf_token"
-                                   value="<?= htmlspecialchars($_SESSION['csrf_token'] ?? '') ?>">
-                            <input type="hidden" name="plat_id"
-                                   value="<?= (int)$plat->getPlatId() ?>">
-                            <input type="hidden" name="menu_id"
-                                   value="<?= (int)$menu->getMenuId() ?>">
-                            <button type="submit" class="btn-supprimer">
-                                <i class="fa-solid fa-trash" aria-hidden="true"></i>
-                            </button>
-                        </form>
-                    </div>
                 <?php endforeach; ?>
             </div>
         </div>
-
+            
 <!-- ALLERGENES -->
 
         <div class="form-group">
@@ -219,6 +203,7 @@ ob_start();
         <div class="form-buttons">
             <button type="submit" class="btn-save">Enregistrer</button>
         </div>
+    </form>
         <div class="footer-btn" style = margin-top:10px>
         <form method="POST"
               action="/employe/menu/supprimer"
@@ -228,9 +213,7 @@ ob_start();
             <input type="hidden" name="menu_id" value="<?= (int)$menu->getMenuId() ?>">
             <button type="submit" class="btn-supprimer">SUPPRIMER CE MENU</button>
         </form>
-    </div>
-
-    </form>
+    </div> 
 </div>
 
 <!-- FOOTER -->
