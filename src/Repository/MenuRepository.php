@@ -304,11 +304,12 @@ public function decrementerQuantite(int $menuId, int $nombrePersonnes): void
             'UPDATE menu
              SET quantite_restante = quantite_restante - :nb
              WHERE menu_id = :id
-             AND quantite_restante >= :nb'
+             AND quantite_restante >= :nb_check'
         );
         $stmt->execute([
-            ':nb' => $nombrePersonnes,
-            ':id' => $menuId,
+            ':nb'       => $nombrePersonnes,
+            ':id'       => $menuId,
+            ':nb_check' => $nombrePersonnes,
         ]);
     } catch (\PDOException $e) {
         error_log('[MenuRepository::decrementerQuantite] ' . $e->getMessage());
